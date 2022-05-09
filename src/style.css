@@ -7,3 +7,79 @@
   font-family: "Roboto", sans-serif;
 }
 
+#content{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns:  20rem 1fr;
+  grid-template-rows: 4rem 1fr;
+  grid-template-areas:
+  'searchBar cityBar'
+  'citiesBlock weatherBlock';
+}
+
+/* search bar */
+
+#searchBar{
+  grid-area: searchBar;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-areas: '. searchEntry autoLocateButton';
+  background-color: green;
+  align-items: center;
+  padding: 1em;
+}
+
+#searchEntry{
+grid-area: searchEntry;
+height: 2rem;
+border-radius: 1rem;
+border:none;
+padding: 1rem;
+}
+
+#autoLocateButton{
+grid-area: autoLocateButton;
+background: none;
+border: none;
+}
+
+#citiesBlock{
+  grid-area: citiesBlock;
+  background-color: red;
+}
+
+/* city bar */
+
+#cityBar{
+  grid-area: cityBar;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-areas: 'openCitiesHalf cityNameTitle menuButton';
+  background-color: blue;
+  align-items: center;
+  padding: 1em;
+}
+
+#openCitiesHalf{
+  grid-area: openCitiesHalf;
+  height: 2rem;
+  background: none;
+  border: none;
+}
+
+#cityNameTitle{
+  grid-area: cityNameTitle;
+}
+
+#menuButton{
+  grid-area: menuButton;
+  height: 2rem;
+  background: none;
+  border: none;
+}
+
+#weatherBlock{
+  grid-area: weatherBlock;
+  background-color: yellow;
+}
