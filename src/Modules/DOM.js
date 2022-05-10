@@ -65,6 +65,7 @@ class DOM {
   makeSearchList(json){
     this.clearCitySearchList();
     this.searchResults.style.display = "flex";
+    this.citiesList.style.display = 'none';
     json.forEach(this.makeCitySearchList.bind(this));
   }
 
@@ -91,6 +92,7 @@ class DOM {
   }
 
   addCity(city){
+    this.citiesList.style.display = '';
     const cityDiv = document.createElement("div");
     cityDiv.id = city.id;
     const weatherIcon = document.createElement('span');
