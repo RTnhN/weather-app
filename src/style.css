@@ -15,7 +15,7 @@
   grid-template-rows: 4rem 1fr;
   grid-template-areas:
   'searchBar cityBar'
-  'citiesBlock weatherBlock';
+  'citiesContainer weatherContainer';
 }
 
 /* search bar */
@@ -43,11 +43,32 @@ grid-area: autoLocateButton;
 background: none;
 border: none;
 }
+/* cities container */
 
-#citiesBlock{
-  grid-area: citiesBlock;
+#citiesContainer{
+  grid-area: citiesContainer;
   background-color: red;
 }
+
+#searchResults{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#citiesList{
+  display: flex;
+  flex-direction: column;
+}
+#citiesList div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: .25rem 1rem;
+}
+
 
 /* city bar */
 
@@ -79,7 +100,8 @@ border: none;
   border: none;
 }
 
-#weatherBlock{
-  grid-area: weatherBlock;
+#weatherContainer{
+  grid-area: weatherContainer;
   background-color: yellow;
 }
+

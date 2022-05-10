@@ -1,0 +1,31 @@
+class WeatherCodes{
+codes = {0: 'sunny',
+    1: 'partly_cloudy_day',
+    2: 'partly_cloudy_day',
+    3: 'cloudy',
+    45: 'foggy',
+    51: 'rainy',
+    53: 'rainy',
+    55: 'rainy',
+    56: 'cloudy_snowing',
+    57: 'cloudy_snowing',
+    61: 'rainy',
+    63: 'rainy',
+    65: 'rainy',
+    66: 'cloudy_snowing',
+    67: 'cloudy_snowing',
+    71: 'cloudy_snowing',
+    73: 'cloudy_snowing',
+    75: 'cloudy_snowing',
+    77: 'cloudy_snowing',
+    80: 'rainy',
+    81: 'rainy',
+    82: 'rainy',
+    85: 'cloudy_snowing',
+    86: 'cloudy_snowing',
+    95: 'thunderstorm',
+    96: 'thunderstorm',
+    99: 'thunderstorm'}
+}
+
+export default WeatherCodes;
