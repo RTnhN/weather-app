@@ -11,9 +11,15 @@ class FetchWeather {
     const jsonWeather = await responseWeather.json();
     if (jsonWeather.current_weather !== undefined){
       this.weatherData = jsonWeather;
-      const cityObject = new City(city, this.weatherData);
-      DOMcallback(cityObject);
-      // databaseCallback(cityObject);
+      let cityObject;
+      if (city.conditions !== undefined){
+        cityObject = city.updateCity(city, jsonWeather)
+      } else {
+        cityObject = new City(city, jsonWeather)
+      }
+      
+      if (DOMcallback) DOMcallback(cityObject);
+      if (databaseCallback) databaseCallback(cityObject);
     }
   }
 }

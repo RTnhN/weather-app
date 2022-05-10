@@ -99,7 +99,7 @@ class DOM {
     weatherIcon.textContent = city.conditions;
     weatherIcon.classList.add('material-symbols-outlined');
     const cityName = document.createElement('span');
-    cityName.textContent = city.cityName;
+    cityName.textContent = city.name;
     const cityTemp = document.createElement('span');
     if (this.tempF){
       cityTemp.textContent = `${city.currentTempF}°`;
