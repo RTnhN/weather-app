@@ -14,6 +14,8 @@ class City {
   todayLowTempF;
   conditions;
   timezone;
+  currentTime;
+  utcOffsetSeconds;
   static convertToF(c){
     return Math.round((9/5*c+32))
   }
@@ -30,6 +32,8 @@ class City {
     this.longitude = cityData.longitude;
     this.country = cityData.country;
     this.timezone = cityData.timezone;
+    this.utcOffsetSeconds = weatherData.utc_offset_seconds;
+    this.lastFetchTime = weatherData.current_weather.time;
     this.currentTempC = weatherData.current_weather.temperature;
     this.currentTempF = City.convertToF(this.currentTempC);
     this.todayHighTempC = weatherData.daily.temperature_2m_max[0];

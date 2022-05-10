@@ -1,3 +1,5 @@
+import { format, add } from 'date-fns';
+
 class DOM {
   constructor(contentNode) {
     this.tempF = true;
@@ -27,7 +29,7 @@ class DOM {
 
     this.searchResults = document.createElement('div');
     this.searchResults.id = "searchResults";
-    
+
     this.citiesList = document.createElement('div');
     this.citiesList.id = 'citiesList';
 
@@ -39,7 +41,7 @@ class DOM {
 
     this.openCitiesHalf = document.createElement('button');
     this.openCitiesHalf.id = 'openCitiesHalf';
-    this.openCitiesHalf.textContent = "chevron_right"; 
+    this.openCitiesHalf.textContent = "chevron_right";
     this.openCitiesHalf.classList.add('material-symbols-outlined');
 
     this.cityNameTitle = document.createElement('p');
@@ -62,26 +64,27 @@ class DOM {
     this.contentNode.appendChild(placeholder);
   }
 
-  makeSearchList(json){
+  makeSearchList(json) {
     this.clearCitySearchList();
     this.searchResults.style.display = "flex";
     this.citiesList.style.display = 'none';
     json.forEach(this.makeCitySearchList.bind(this));
   }
 
-  clearCitySearchList(){
+  clearCitySearchList() {
     this.searchResults.style.display = "";
-    while(this.searchResults.firstChild){
+    this.citiesList.style.display = '';
+    while (this.searchResults.firstChild) {
       this.searchResults.removeChild(this.searchResults.firstChild);
     }
   }
 
-  makeCitySearchList(city){
+  makeCitySearchList(city) {
     const placeholder = document.createDocumentFragment();
     const cityDiv = document.createElement('div');
     cityDiv.id = city.id;
     let cityName;
-    if (city.country === 'United States'){
+    if (city.country === 'United States') {
       cityName = `${city.name}, ${city.admin1}, ${city.country}`;
     } else {
       cityName = `${city.name}, ${city.country}`;
@@ -91,7 +94,7 @@ class DOM {
     this.searchResults.appendChild(placeholder);
   }
 
-  addCity(city){
+  addCity(city) {
     this.citiesList.style.display = '';
     const cityDiv = document.createElement("div");
     cityDiv.id = city.id;
@@ -100,27 +103,43 @@ class DOM {
     weatherIcon.classList.add('material-symbols-outlined');
     const cityName = document.createElement('span');
     cityName.textContent = city.name;
+    const cityTime = document.createElement('span');
+    cityTime.textContent = format(
+      add(
+        add(
+          new Date(),
+          { minutes: new Date().getTimezoneOffset() }),
+        { seconds: city.utcOffsetSeconds }),
+       'h:mm aaa');
     const cityTemp = document.createElement('span');
-    if (this.tempF){
+    if (this.tempF) {
       cityTemp.textContent = `${city.currentTempF}°`;
     } else {
       cityTemp.textContent = `${city.currentTempC}°`;
     }
     cityDiv.appendChild(weatherIcon);
     cityDiv.appendChild(cityName);
+    cityDiv.appendChild(cityTime);
     cityDiv.appendChild(cityTemp);
     this.citiesList.appendChild(cityDiv);
   }
-  updateCity(city){
+  updateCity(city) {
     const cityId = city.id;
     const cityElement = document.getElementById(cityId);
     const cityElementChildren = cityElement.children;
     cityElementChildren[0].textContent = city.conditions;
     cityElementChildren[1].textContent = city.name;
-    if (this.tempF){
-      cityElementChildren[2].textContent = `${city.currentTempF}°`;
+    cityElementChildren[2].textContent = format(
+      add(
+        add(
+          new Date(),
+          { minutes: new Date().getTimezoneOffset() }),
+        { seconds: city.utcOffsetSeconds }),
+       'h:mm aaa');
+    if (this.tempF) {
+      cityElementChildren[3].textContent = `${city.currentTempF}°`;
     } else {
-      cityElementChildren[2].textContent = `${city.currentTempC}°`;
+      cityElementChildren[3].textContent = `${city.currentTempC}°`;
     }
   }
 }

@@ -19,7 +19,12 @@ database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.addCit
 function updateWeather(){
   database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.updateCity.bind(DOMinstance), database.updateCity.bind(database)));
 }
-setInterval(updateWeather, 60000);
+
+setTimeout(() => {
+  setInterval(updateWeather, 60000);
+  updateWeather();
+}, (60 - new Date().getSeconds()) * 1000);
+
 
 function searchBarEntry(event) {
   if (event.target.value.length < 2) {
