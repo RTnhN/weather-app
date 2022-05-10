@@ -111,6 +111,18 @@ class DOM {
     cityDiv.appendChild(cityTemp);
     this.citiesList.appendChild(cityDiv);
   }
+  updateCity(city){
+    const cityId = city.id;
+    const cityElement = document.getElementById(cityId);
+    const cityElementChildren = cityElement.children;
+    cityElementChildren[0].textContent = city.conditions;
+    cityElementChildren[1].textContent = city.name;
+    if (this.tempF){
+      cityElementChildren[2].textContent = `${city.currentTempF}°`;
+    } else {
+      cityElementChildren[2].textContent = `${city.currentTempC}°`;
+    }
+  }
 }
 
 export default DOM;

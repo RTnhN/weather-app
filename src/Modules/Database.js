@@ -13,6 +13,13 @@ class Database {
     this.cities = this.cities.filter(city => city.id !== cityId)
     this.writeStorage()
   }
+  updateCity(city){
+    this.cities[this.getCityIndex(city)].updateCity(city)
+  }
+  getCityIndex(queryCity){
+    return this.cities.findIndex(city=> city.id === queryCity.id);
+  }
+
   writeStorage() {
     if (this.#storageAgent !== null) {
       this.#storageAgent.store(this.cities);

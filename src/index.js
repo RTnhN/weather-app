@@ -14,11 +14,12 @@ const DOMinstance = new DOM(contentNode);
 const localStorageAgent = new LocalStorageAgent(City, 'cities');
 const database = new Database(localStorageAgent);
 
-function updateAndAddCities(city){
-  fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance))
-}
+database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance)));
 
-database.cities.forEach(updateAndAddCities);
+function updateWeather(){
+  database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.updateCity.bind(DOMinstance), database.updateCity.bind(database)));
+}
+setInterval(updateWeather, 60000);
 
 function searchBarEntry(event) {
   if (event.target.value.length < 2) {
