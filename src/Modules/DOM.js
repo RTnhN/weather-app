@@ -93,13 +93,11 @@ class DOM {
   makeSearchList(json) {
     this.clearCitySearchList();
     this.searchResults.style.display = "flex";
-    this.citiesList.style.display = 'none';
     json.forEach(this.makeCitySearchList.bind(this));
   }
 
   clearCitySearchList() {
     this.searchResults.style.display = "";
-    this.citiesList.style.display = '';
     while (this.searchResults.firstChild) {
       this.searchResults.removeChild(this.searchResults.firstChild);
     }
