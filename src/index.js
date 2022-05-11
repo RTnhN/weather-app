@@ -10,9 +10,9 @@ import City from './Modules/City';
 const contentNode = document.getElementById('content');
 const fetchCities = new FetchCities();
 const fetchWeather = new FetchWeather();
-const DOMinstance = new DOM(contentNode);
 const localStorageAgent = new LocalStorageAgent(City, 'cities');
 const database = new Database(localStorageAgent);
+const DOMinstance = new DOM(contentNode, database.userPreferences);
 
 database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance)));
 
@@ -44,3 +44,14 @@ function citySelected(event){
   fetchWeather.getWeather(targetCity, DOMinstance.addCity.bind(DOMinstance), database.addCity.bind(database))
 }
 DOMinstance.searchResults.addEventListener('click', citySelected)
+
+function toggleUnits(){
+  DOMinstance.tempF = !DOMinstance.tempF;
+  database.userPreferences.preferF = DOMinstance.tempF;
+  updateWeather();
+  DOMinstance.changeUnitsButton.textContent = (DOMinstance.tempF)
+    ? "Change temp to °C"
+    : "Change temp to °F";
+}
+
+DOMinstance.changeUnitsButton.addEventListener('click', toggleUnits);

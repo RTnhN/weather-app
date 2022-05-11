@@ -9,9 +9,9 @@ class LocalStorageAgent {
   unstore() {
     let blob = JSON.parse(window.localStorage.getItem(this.key));
     if (blob === null) {
-      return [];
+      return [{},[]];
     } else {
-      return blob.map(object => Object.assign(new this.classTemplate(), object));
+      return [blob[0], blob[1].map(object => Object.assign(new this.classTemplate(), object))];
     }
   }
   clear() {

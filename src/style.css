@@ -78,8 +78,8 @@ border: none;
 #cityBar{
   grid-area: cityBar;
   display: grid;
-  grid-template-columns: 2rem 1fr 2rem;
-  grid-template-areas: 'openCitiesHalf cityNameTitle menuButton';
+  grid-template-columns: 5rem 1fr 5rem;
+  grid-template-areas: 'openCitiesHalf cityNameTitle menuContainer';
   background-color: blue;
   align-items: center;
   padding: 1em;
@@ -90,17 +90,43 @@ border: none;
   height: 2rem;
   background: none;
   border: none;
+  justify-self: flex-start;
 }
 
 #cityNameTitle{
   grid-area: cityNameTitle;
+  justify-self: center;
+}
+
+#menu{
+  grid-area: menuContainer;
+  height: 2rem;
+  width: 5rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.menuContents{
+  display: flex;
+  top: 4rem;
+  padding: 1em;
+  gap: 1rem;
+  flex-direction: column;
+  position: absolute;
+  z-index: 999;
+  background-color: white;
+}
+
+.menuHide{
+  display: none;
 }
 
 #menuButton{
-  grid-area: menuButton;
-  height: 2rem;
   background: none;
   border: none;
+  height:2rem;
 }
 
 #weatherContainer{

@@ -1,8 +1,8 @@
 import { format, add } from 'date-fns';
 
 class DOM {
-  constructor(contentNode) {
-    this.tempF = true;
+  constructor(contentNode, userPreferences) {
+    this.tempF = userPreferences.preferF;
     this.contentNode = contentNode;
     const placeholder = document.createDocumentFragment();
     this.searchBar = document.createElement('div');
@@ -46,15 +46,40 @@ class DOM {
 
     this.cityNameTitle = document.createElement('p');
     this.cityNameTitle.id = 'cityNameTitle';
+    this.cityNameTitle.textContent = 'Tyler';
+
+    this.menu = document.createElement('div');
+    this.menu.id = 'menu';
 
     this.menuButton = document.createElement("button");
     this.menuButton.id = 'menuButton';
     this.menuButton.textContent = 'info';
     this.menuButton.classList.add('material-symbols-outlined');
 
+    this.menuContents = document.createElement('div');
+    this.menuContents.id = 'menuContents';
+    this.menuContents.classList.add('menuContents');
+    this.menuContents.classList.add('menuHide');
+
+    this.changeUnitsButton = document.createElement('div');
+    this.changeUnitsButton.id = 'changeUnitsButton';
+    this.changeUnitsButton.textContent = this.tempF 
+      ? "Change temp to °C"
+      : "Change temp to °F";
+    
+    this.removeCityButton = document.createElement('div');
+    this.removeCityButton.id = 'removeCityButton';
+    this.removeCityButton.textContent = 'Remove city from city list';
+
+    this.menuContents.appendChild(this.changeUnitsButton);
+    this.menuContents.appendChild(this.removeCityButton);
+
+    this.menu.appendChild(this.menuButton);
+    this.menu.appendChild(this.menuContents);
+
     this.cityBar.appendChild(this.openCitiesHalf);
     this.cityBar.appendChild(this.cityNameTitle);
-    this.cityBar.appendChild(this.menuButton);
+    this.cityBar.appendChild(this.menu);
 
     placeholder.appendChild(this.searchBar);
     placeholder.appendChild(this.citiesContainer);
@@ -62,6 +87,7 @@ class DOM {
     placeholder.appendChild(this.weatherContainer);
 
     this.contentNode.appendChild(placeholder);
+    this.menuButton.addEventListener('click', this.toggleMenu.bind(this));
   }
 
   makeSearchList(json) {
@@ -141,6 +167,13 @@ class DOM {
     } else {
       cityElementChildren[3].textContent = `${city.currentTempC}°`;
     }
+  }
+  toggleMenu(){
+    if (this.menuContents.classList.contains('menuHide')){
+      this.menuContents.classList.remove('menuHide');
+    } else {
+      this.menuContents.classList.add('menuHide');
+    }   
   }
 }
 
