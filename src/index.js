@@ -6,7 +6,6 @@ import LocalStorageAgent from './Modules/LocalStorageAgent';
 import Database from './Modules/Database';
 import City from './Modules/City';
 
-
 const contentNode = document.getElementById('content');
 const fetchCities = new FetchCities();
 const fetchWeather = new FetchWeather();
@@ -24,7 +23,6 @@ setTimeout(() => {
   setInterval(updateWeather, 60000);
   updateWeather();
 }, (60 - new Date().getSeconds()) * 1000);
-
 
 function searchBarEntry(event) {
   if (event.target.value.length < 2) {
