@@ -64,3 +64,12 @@ function makeWeatherPage(event) {
 
 DOMinstance.citiesList.addEventListener('click', makeWeatherPage);
 
+function removeCity(){
+  const cityId = DOMinstance.weatherPageCity.id;
+  database.removeCity(cityId);
+  DOMinstance.removeCity(cityId);
+  DOMinstance.clearWeatherPage();
+  DOMinstance.toggleMenu();
+}
+
+DOMinstance.removeCityButton.addEventListener('click', removeCity);

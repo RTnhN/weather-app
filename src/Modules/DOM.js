@@ -46,7 +46,7 @@ class DOM {
 
     this.cityNameTitle = document.createElement('p');
     this.cityNameTitle.id = 'cityNameTitle';
-    this.cityNameTitle.textContent = 'Tyler';
+    this.cityNameTitle.textContent = '';
 
     this.menu = document.createElement('div');
     this.menu.id = 'menu';
@@ -166,6 +166,9 @@ class DOM {
       cityElementChildren[3].textContent = `${city.currentTempC}°`;
     }
   }
+  removeCity(cityId){
+    this.citiesList.removeChild(document.getElementById(cityId));
+  }
   makeWeatherPage(city){
     this.clearWeatherPage();
     this.weatherPageCity = city;
@@ -209,6 +212,7 @@ class DOM {
     while (this.weatherContainer.firstChild){
       this.weatherContainer.removeChild(this.weatherContainer.firstChild);
     }
+    this.cityNameTitle.textContent = '';
   }
 
   toggleMenu(){
