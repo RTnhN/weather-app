@@ -164,36 +164,37 @@ border: none;
   display: grid;
   width: min(80%, 500px);
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr 1fr 1fr;
   grid-template-areas:
   'currentTemp currentTemp'
   'currentConditions currentConditions'
   'dailyHigh dailyLow';
+  background-color: azure;
 }
 
 #weatherPageTemp{
   grid-area: currentTemp;
   align-self: center;
   justify-self: center;
-  font-size: 7rem;
+  font-size: min(7rem, 10vw);
 }
 #weatherPageConditions{
   grid-area: currentConditions;
   align-self: center;
   justify-self: center;
-  font-size: 5rem;
+  font-size: min(4rem, 5vw)
 }
 #weatherPageHighTemp{
   grid-area: dailyHigh;
   align-self: center;
   justify-self: center;
-  font-size: 3rem;
+  font-size: min(3rem, 4vw);
 }
 #weatherPageLowTemp{
   grid-area: dailyLow;
   align-self: center;
   justify-self: center;
-  font-size: 3rem;
+  font-size: min(3rem, 4vw);
 }
 
 

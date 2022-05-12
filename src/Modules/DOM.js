@@ -1,7 +1,9 @@
 import { format, add } from 'date-fns';
+import WeatherCodes from './WeatherCodeLookup';
 
 class DOM {
   constructor(contentNode, userPreferences) {
+    this.weatherCodes = new WeatherCodes().codes;
     this.tempF = userPreferences.preferF;
     this.contentNode = contentNode;
     const placeholder = document.createDocumentFragment();
@@ -63,10 +65,10 @@ class DOM {
 
     this.changeUnitsButton = document.createElement('div');
     this.changeUnitsButton.id = 'changeUnitsButton';
-    this.changeUnitsButton.textContent = this.tempF 
+    this.changeUnitsButton.textContent = this.tempF
       ? "Change temp to °C"
       : "Change temp to °F";
-    
+
     this.removeCityButton = document.createElement('div');
     this.removeCityButton.id = 'removeCityButton';
     this.removeCityButton.textContent = 'Remove city from city list';
@@ -88,6 +90,8 @@ class DOM {
 
     this.contentNode.appendChild(placeholder);
     this.menuButton.addEventListener('click', this.toggleMenu.bind(this));
+    document.addEventListener('click', this.clickOutside.bind(this));
+    this.menuElements = [this.menu, this.menuButton, this.menuContents, this.changeUnitsButton, this.removeCityButton];
   }
 
   makeSearchList(json) {
@@ -123,7 +127,7 @@ class DOM {
     const cityDiv = document.createElement("div");
     cityDiv.id = city.id;
     const weatherIcon = document.createElement('span');
-    weatherIcon.textContent = city.conditions;
+    weatherIcon.textContent = this.weatherCodes[city.conditions].icon;
     weatherIcon.classList.add('material-symbols-outlined');
     const cityName = document.createElement('span');
     cityName.textContent = city.name;
@@ -134,7 +138,7 @@ class DOM {
           new Date(),
           { minutes: new Date().getTimezoneOffset() }),
         { seconds: city.utcOffsetSeconds }),
-       'h:mm aaa');
+      'h:mm aaa');
     const cityTemp = document.createElement('span');
     if (this.tempF) {
       cityTemp.textContent = `${city.currentTempF}°`;
@@ -151,7 +155,7 @@ class DOM {
     const cityId = city.id;
     const cityElement = document.getElementById(cityId);
     const cityElementChildren = cityElement.children;
-    cityElementChildren[0].textContent = city.conditions;
+    cityElementChildren[0].textContent = this.weatherCodes[city.conditions].icon;
     cityElementChildren[1].textContent = city.name;
     cityElementChildren[2].textContent = format(
       add(
@@ -159,17 +163,17 @@ class DOM {
           new Date(),
           { minutes: new Date().getTimezoneOffset() }),
         { seconds: city.utcOffsetSeconds }),
-       'h:mm aaa');
+      'h:mm aaa');
     if (this.tempF) {
       cityElementChildren[3].textContent = `${city.currentTempF}°`;
     } else {
       cityElementChildren[3].textContent = `${city.currentTempC}°`;
     }
   }
-  removeCity(cityId){
+  removeCity(cityId) {
     this.citiesList.removeChild(document.getElementById(cityId));
   }
-  makeWeatherPage(city){
+  makeWeatherPage(city) {
     this.clearWeatherPage();
     this.weatherPageCity = city;
     this.cityNameTitle.textContent = city.name;
@@ -183,7 +187,7 @@ class DOM {
 
     this.weatherPageConditions = document.createElement('p');
     this.weatherPageConditions.id = 'weatherPageConditions';
-    this.weatherPageConditions.textContent = city.conditions;
+    this.weatherPageConditions.textContent = this.weatherCodes[city.conditions].name;
 
     this.weatherPageHighTemp = document.createElement('p');
     this.weatherPageHighTemp.id = 'weatherPageHighTemp';
@@ -208,19 +212,26 @@ class DOM {
     this.weatherSubcontainer.appendChild(this.weatherPageLowTemp);
     this.weatherContainer.appendChild(this.weatherSubcontainer);
   }
-  clearWeatherPage(){
-    while (this.weatherContainer.firstChild){
+  clearWeatherPage() {
+    while (this.weatherContainer.firstChild) {
       this.weatherContainer.removeChild(this.weatherContainer.firstChild);
     }
     this.cityNameTitle.textContent = '';
   }
 
-  toggleMenu(){
-    if (this.menuContents.classList.contains('menuHide')){
+  toggleMenu() {
+    if (this.menuContents.classList.contains('menuHide')) {
       this.menuContents.classList.remove('menuHide');
     } else {
       this.menuContents.classList.add('menuHide');
-    }   
+    }
+  }
+  clickOutside(event) {
+    if (!this.menuElements.includes(event.target)) {
+      if (!this.menuContents.classList.contains('menuHide')) {
+        this.menuContents.classList.add('menuHide');
+      }
+    }
   }
 }
 

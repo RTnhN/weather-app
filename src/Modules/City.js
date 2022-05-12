@@ -1,6 +1,4 @@
-import WeatherCodes from "./WeatherCodeLookup";
 class City {
-  #weatherCodes;
   id;
   name;
   latitude
@@ -25,7 +23,6 @@ class City {
 
   updateCity(cityData, weatherData){
     if (!cityData || !weatherData) return;
-    this.#weatherCodes = new WeatherCodes()
     this.id = cityData.id;
     this.name = cityData.name;
     this.latitude = cityData.latitude;
@@ -40,7 +37,7 @@ class City {
     this.todayHighTempF = City.convertToF(this.todayHighTempC);
     this.todayLowTempC = weatherData.daily.temperature_2m_min[0];
     this.todayLowTempF = City.convertToF(this.todayLowTempC);
-    this.conditions = this.#weatherCodes.codes[weatherData.daily.weathercode[0]];
+    this.conditions = weatherData.daily.weathercode[0];
     return this;
 
   }
