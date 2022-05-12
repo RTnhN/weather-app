@@ -11,6 +11,10 @@
   --cities-list-color: hsl(270, 1%, 27%);
 }
 
+body {
+  overscroll-behavior: contain;
+}
+
 #content{
   width: 100vw;
   height: 100vh;
