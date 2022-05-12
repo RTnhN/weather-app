@@ -7,14 +7,17 @@ class DOM {
     this.tempF = userPreferences.preferF;
     this.contentNode = contentNode;
     const placeholder = document.createDocumentFragment();
-    this.searchBar = document.createElement('div');
-    this.citiesContainer = document.createElement('div');
-    this.cityBar = document.createElement('div');
-    this.weatherContainer = document.createElement('div');
 
+    this.searchBar = document.createElement('div');
     this.searchBar.id = 'searchBar';
+
+    this.citiesContainer = document.createElement('div');
     this.citiesContainer.id = 'citiesContainer';
+ 
+    this.cityBar = document.createElement('div');
     this.cityBar.id = 'cityBar';
+
+    this.weatherContainer = document.createElement('div');
     this.weatherContainer.id = 'weatherContainer';
 
     this.searchEntry = document.createElement('input');
