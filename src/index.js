@@ -58,6 +58,7 @@ function toggleUnits(){
 DOMinstance.changeUnitsButton.addEventListener('click', toggleUnits);
 
 function makeWeatherPage(event) {
+  if (event.target.id === 'citiesList') return;
   const cityId = (event.target.tagName === "SPAN") ? event.target.parentElement.id : event.target.id;
   DOMinstance.makeWeatherPage(database.getCityById(cityId));
 }
