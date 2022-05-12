@@ -124,13 +124,20 @@ border: none;
 .menuContents{
   display: flex;
   top: 4rem;
-  padding: 1em;
-  gap: 1rem;
   flex-direction: column;
   position: absolute;
   z-index: 999;
   background-color: white;
 }
+
+.menuContents div{
+  padding: 1em;
+}
+
+.menuContents div:hover{
+  background-color: hsla(0, 0%, 85%, 0.75);
+}
+
 
 .menuHide{
   display: none;
@@ -146,14 +153,11 @@ border: none;
   color: hsl(0, 0%, 80%);
 }
 
-#weatherContainer{
-  grid-area: weatherContainer;
-  background-color: yellow;
-}
-
 /* Weather Container */
 
 #weatherContainer{
+  grid-area: weatherContainer;
+  background-color: yellow;
   display: flex;
   flex-direction: column;
   align-items: center;
