@@ -37,7 +37,7 @@ class City {
     this.todayHighTempF = City.convertToF(this.todayHighTempC);
     this.todayLowTempC = weatherData.daily.temperature_2m_min[0];
     this.todayLowTempF = City.convertToF(this.todayLowTempC);
-    this.conditions = weatherData.daily.weathercode[0];
+    this.conditions = weatherData.current_weather.weathercode;
     return this;
 
   }
