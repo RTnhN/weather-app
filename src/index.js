@@ -15,6 +15,10 @@ const DOMinstance = new DOM(contentNode, database.userPreferences);
 
 database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance)));
 
+if (window.innerWidth < 600){
+  DOMinstance.closeSidebar()
+}
+
 function updateWeather(){
   database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.updateCity.bind(DOMinstance), database.updateCity.bind(database)));
   if (DOMinstance.weatherPageCity !== undefined){
@@ -59,8 +63,9 @@ DOMinstance.changeUnitsButton.addEventListener('click', toggleUnits);
 
 function makeWeatherPage(event) {
   if (event.target.id === 'citiesList') return;
-  const cityId = (event.target.tagName === "SPAN") ? event.target.parentElement.id : event.target.id;
-  DOMinstance.makeWeatherPage(database.getCityById(cityId));
+  const cityDiv = (event.target.tagName === "SPAN") ? event.target.parentElement : event.target;
+  DOMinstance.makeWeatherPage(database.getCityById(cityDiv.id));
+  cityDiv.style.backgroundColor = 'hsl(0,0%,70%)';
 }
 
 DOMinstance.citiesList.addEventListener('click', makeWeatherPage);

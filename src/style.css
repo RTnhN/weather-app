@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +8,7 @@
 
 :root{
   --header-color: hsl(240, 58%, 49%);
+  --cities-list-color: hsl(270, 1%, 27%);
 }
 
 #content{
@@ -28,7 +28,7 @@
   grid-area: searchBar;
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
-  grid-template-areas: '. searchEntry autoLocateButton';
+  grid-template-areas: '. searchEntry closeSidebarButton';
   background-color: var(--header-color);
   align-items: center;
   padding: 1em;
@@ -42,16 +42,24 @@ border:none;
 padding: 1rem;
 }
 
-#autoLocateButton{
-grid-area: autoLocateButton;
+#closeSidebarButton{
+grid-area: closeSidebarButton;
 background: none;
 border: none;
+color:white;
 }
+
+#closeSidebarButton:hover{
+  cursor: pointer;
+  color: hsla(0, 0%, 85%, 0.75);
+}
+
+
 /* cities container */
 
 #citiesContainer{
   grid-area: citiesContainer;
-  background-color: rgb(44, 41, 48);
+  background-color: var(--cities-list-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +95,7 @@ border: none;
 }
 
 #citiesList div:hover{
-  background-color: hsla(0, 0%, 100%, 0.75);
+  background-color: hsla(0, 0%, 80%, 1);
 }
 
 
@@ -97,19 +105,25 @@ border: none;
   grid-area: cityBar;
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
-  grid-template-areas: 'openCitiesHalf cityNameTitle menuContainer';
+  grid-template-areas: 'openSidebarButton cityNameTitle menuContainer';
   background-color: var(--header-color);
   align-items: center;
   padding: 1em;
 }
 
-#openCitiesHalf{
-  grid-area: openCitiesHalf;
+#openSidebarButton{
+  grid-area: openSidebarButton;
   height: 2rem;
   background: none;
   border: none;
   justify-self: flex-start;
   display: none;
+  color:white;
+}
+
+#openSidebarButton:hover{
+  cursor: pointer;
+  color: hsla(0, 0%, 85%, 0.75);
 }
 
 #cityNameTitle{
@@ -117,6 +131,7 @@ border: none;
   justify-self: center;
   font-size: 2rem;
   color: white;
+  text-align: center;
 }
 
 #menu{
@@ -155,6 +170,8 @@ border: none;
   background: none;
   border: none;
   height:2rem;
+  color:white;
+
 }
 #menuButton:hover{
   cursor: pointer;
@@ -177,6 +194,8 @@ border: none;
 #placeholderTextWeatherContainer{
   margin-top: 1rem;
   font-size: 2rem;
+  text-align: center;
+
 
 }
 
@@ -218,4 +237,15 @@ border: none;
   font-size: min(3rem, 4vw);
 }
 
+/* media queries */
+
+@media screen and (max-width: 600px) {
+  #openSidebarButton{ 
+    display: block;
+  }
+
+  #content {
+    grid-template-columns: 0px 1fr;
+  }
+}
 

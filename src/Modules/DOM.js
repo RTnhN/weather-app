@@ -23,14 +23,16 @@ class DOM {
     this.searchEntry = document.createElement('input');
     this.searchEntry.type = 'text';
     this.searchEntry.id = 'searchEntry';
+    this.searchEntry.placeholder = 'Enter a city name or zip code';
 
-    this.autoLocateButton = document.createElement('button');
-    this.autoLocateButton.id = 'autoLocateButton';
-    this.autoLocateButton.textContent = 'my_location';
-    this.autoLocateButton.classList.add('material-symbols-outlined');
+    this.closeSidebarButton = document.createElement('button');
+    this.closeSidebarButton.id = 'closeSidebarButton';
+    this.closeSidebarButton.textContent = 'chevron_left';
+    this.closeSidebarButton.classList.add('material-symbols-outlined');
+    this.closeSidebarButton.style.display = 'none';
 
     this.searchBar.appendChild(this.searchEntry);
-    this.searchBar.appendChild(this.autoLocateButton);
+    this.searchBar.appendChild(this.closeSidebarButton);
 
     this.searchResults = document.createElement('div');
     this.searchResults.id = "searchResults";
@@ -44,10 +46,10 @@ class DOM {
     this.cityBar = document.createElement("div");
     this.cityBar.id = 'cityBar';
 
-    this.openCitiesHalf = document.createElement('button');
-    this.openCitiesHalf.id = 'openCitiesHalf';
-    this.openCitiesHalf.textContent = "chevron_right";
-    this.openCitiesHalf.classList.add('material-symbols-outlined');
+    this.openSidebarButton = document.createElement('button');
+    this.openSidebarButton.id = 'openSidebarButton';
+    this.openSidebarButton.textContent = "chevron_right";
+    this.openSidebarButton.classList.add('material-symbols-outlined');
 
     this.cityNameTitle = document.createElement('p');
     this.cityNameTitle.id = 'cityNameTitle';
@@ -82,7 +84,7 @@ class DOM {
     this.menu.appendChild(this.menuButton);
     this.menu.appendChild(this.menuContents);
 
-    this.cityBar.appendChild(this.openCitiesHalf);
+    this.cityBar.appendChild(this.openSidebarButton);
     this.cityBar.appendChild(this.cityNameTitle);
     this.cityBar.appendChild(this.menu);
 
@@ -101,6 +103,9 @@ class DOM {
     this.menuButton.addEventListener('click', this.toggleMenu.bind(this));
     document.addEventListener('click', this.clickOutside.bind(this));
     this.menuElements = [this.menu, this.menuButton, this.menuContents, this.changeUnitsButton, this.removeCityButton];
+    this.openSidebarButton.addEventListener('click', this.openSidebar.bind(this));
+    this.closeSidebarButton.addEventListener('click', this.closeSidebar.bind(this));
+    window.addEventListener('resize', this.windowResized.bind(this));
   }
 
   makeSearchList(json) {
@@ -182,12 +187,12 @@ class DOM {
   removeCity(cityId) {
     this.citiesList.removeChild(document.getElementById(cityId));
     this.weatherPageCity = undefined;
-    this.weatherContainer.style = '';
+    this.weatherContainer.style.backgroundImage = '';
   }
   makeWeatherPage(city) {
     this.clearWeatherPage();
     this.weatherPageCity = city;
-    this.weatherContainer.style = `background-image: url(${weatherCodes[city.conditions].image});`
+    this.weatherContainer.style.backgroundImage = `url(${weatherCodes[city.conditions].image})`;
     this.cityNameTitle.textContent = city.name;
     this.weatherPageTemp = document.createElement('p');
     this.weatherPageTemp.id = 'weatherPageTemp';
@@ -229,6 +234,7 @@ class DOM {
       this.weatherContainer.removeChild(this.weatherContainer.firstChild);
     }
     this.cityNameTitle.textContent = '';
+    Array.from(this.citiesList.children).forEach(div => div.style.backgroundColor = '');
   }
 
   toggleMenu() {
@@ -243,6 +249,27 @@ class DOM {
       if (!this.menuContents.classList.contains('menuHide')) {
         this.menuContents.classList.add('menuHide');
       }
+    }
+  }
+  openSidebar(){
+    this.contentNode.style.setProperty('grid-template-columns', '1fr 0');
+    this.closeSidebarButton.style.setProperty('display', '');
+    this.weatherContainer.style.setProperty('display', 'none');
+    this.cityBar.style.setProperty('display', 'none');
+    this.citiesContainer.style.setProperty('display', '');
+  }
+  closeSidebar(){
+    this.contentNode.style.setProperty('grid-template-columns', '');
+    this.closeSidebarButton.style.setProperty('display', 'none');
+    this.weatherContainer.style.setProperty('display', '');
+    this.cityBar.style.setProperty('display', '');
+    this.citiesContainer.style.setProperty('display', 'none');
+  }
+  windowResized(event) {
+    if (window.innerWidth > 600){
+      this.citiesContainer.style.setProperty('display', '');
+    } else {
+      this.citiesContainer.style.setProperty('display', 'none');
     }
   }
 }
