@@ -71,6 +71,10 @@ function makeWeatherPage(event) {
 DOMinstance.citiesList.addEventListener('click', makeWeatherPage);
 
 function removeCity(){
+  if (DOMinstance.weatherPageCity === undefined){
+    alert('You have to select a city before you can remove it from the list.');
+    return
+  }
   const cityId = DOMinstance.weatherPageCity.id;
   database.removeCity(cityId);
   DOMinstance.removeCity(cityId);
