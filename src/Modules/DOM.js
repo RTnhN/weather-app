@@ -1,9 +1,9 @@
 import { format, add } from 'date-fns';
-import WeatherCodes from './WeatherCodeLookup';
+import weatherCodes from './WeatherCodeLookup';
 
 class DOM {
   constructor(contentNode, userPreferences) {
-    this.weatherCodes = new WeatherCodes().codes;
+    this.weatherCodes = weatherCodes;
     this.tempF = userPreferences.preferF;
     this.contentNode = contentNode;
     const placeholder = document.createDocumentFragment();
@@ -172,10 +172,12 @@ class DOM {
   }
   removeCity(cityId) {
     this.citiesList.removeChild(document.getElementById(cityId));
+    this.weatherContainer.style = '';
   }
   makeWeatherPage(city) {
     this.clearWeatherPage();
     this.weatherPageCity = city;
+    this.weatherContainer.style = `background-image: url(${weatherCodes[city.conditions].image});`
     this.cityNameTitle.textContent = city.name;
     this.weatherPageTemp = document.createElement('p');
     this.weatherPageTemp.id = 'weatherPageTemp';

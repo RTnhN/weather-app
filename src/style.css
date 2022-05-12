@@ -162,6 +162,9 @@ border: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 #weatherSubcontainer{
@@ -173,7 +176,8 @@ border: none;
   'currentTemp currentTemp'
   'currentConditions currentConditions'
   'dailyHigh dailyLow';
-  background-color: azure;
+  background-color: hsla(0, 0%, 100%, 0.75);
+  margin-top: 2rem;
 }
 
 #weatherPageTemp{
