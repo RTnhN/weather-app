@@ -13,6 +13,7 @@
 
 body {
   overscroll-behavior: contain;
+  touch-action: none;
 }
 
 #content{
