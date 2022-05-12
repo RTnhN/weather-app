@@ -166,6 +166,51 @@ class DOM {
       cityElementChildren[3].textContent = `${city.currentTempC}°`;
     }
   }
+  makeWeatherPage(city){
+    this.clearWeatherPage();
+    this.weatherPageCity = city;
+    this.cityNameTitle.textContent = city.name;
+    this.weatherPageTemp = document.createElement('p');
+    this.weatherPageTemp.id = 'weatherPageTemp';
+    if (this.tempF) {
+      this.weatherPageTemp.textContent = `${city.currentTempF}°`;
+    } else {
+      this.weatherPageTemp.textContent = `${city.currentTempC}°`;
+    }
+
+    this.weatherPageConditions = document.createElement('p');
+    this.weatherPageConditions.id = 'weatherPageConditions';
+    this.weatherPageConditions.textContent = city.conditions;
+
+    this.weatherPageHighTemp = document.createElement('p');
+    this.weatherPageHighTemp.id = 'weatherPageHighTemp';
+    if (this.tempF) {
+      this.weatherPageHighTemp.textContent = `High ${city.todayHighTempF}°`;
+    } else {
+      this.weatherPageHighTemp.textContent = `High ${city.todayHighTempC}°`;
+    }
+
+    this.weatherPageLowTemp = document.createElement('p');
+    this.weatherPageLowTemp.id = 'weatherPageLowTemp';
+    if (this.tempF) {
+      this.weatherPageLowTemp.textContent = `Low ${city.todayLowTempF}°`;
+    } else {
+      this.weatherPageLowTemp.textContent = `Low ${city.todayLowTempC}°`;
+    }
+    this.weatherSubcontainer = document.createElement('div');
+    this.weatherSubcontainer.id = 'weatherSubcontainer';
+    this.weatherSubcontainer.appendChild(this.weatherPageTemp);
+    this.weatherSubcontainer.appendChild(this.weatherPageConditions);
+    this.weatherSubcontainer.appendChild(this.weatherPageHighTemp);
+    this.weatherSubcontainer.appendChild(this.weatherPageLowTemp);
+    this.weatherContainer.appendChild(this.weatherSubcontainer);
+  }
+  clearWeatherPage(){
+    while (this.weatherContainer.firstChild){
+      this.weatherContainer.removeChild(this.weatherContainer.firstChild);
+    }
+  }
+
   toggleMenu(){
     if (this.menuContents.classList.contains('menuHide')){
       this.menuContents.classList.remove('menuHide');

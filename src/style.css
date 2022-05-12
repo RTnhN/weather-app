@@ -102,6 +102,7 @@ border: none;
 #cityNameTitle{
   grid-area: cityNameTitle;
   justify-self: center;
+  font-size: 2rem;
 }
 
 #menu{
@@ -134,9 +135,59 @@ border: none;
   border: none;
   height:2rem;
 }
+#menuButton:hover{
+  cursor: pointer;
+  color: hsl(0, 0%, 80%);
+}
 
 #weatherContainer{
   grid-area: weatherContainer;
   background-color: yellow;
 }
+
+/* Weather Container */
+
+#weatherContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#weatherSubcontainer{
+  display: grid;
+  width: min(80%, 500px);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+  'currentTemp currentTemp'
+  'currentConditions currentConditions'
+  'dailyHigh dailyLow';
+}
+
+#weatherPageTemp{
+  grid-area: currentTemp;
+  align-self: center;
+  justify-self: center;
+  font-size: 7rem;
+}
+#weatherPageConditions{
+  grid-area: currentConditions;
+  align-self: center;
+  justify-self: center;
+  font-size: 5rem;
+}
+#weatherPageHighTemp{
+  grid-area: dailyHigh;
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+}
+#weatherPageLowTemp{
+  grid-area: dailyLow;
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+}
+
 

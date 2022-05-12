@@ -24,6 +24,10 @@ class Database {
   getCityIndex(queryCity){
     return this.cities.findIndex(city => city.id === queryCity.id);
   }
+  getCityById(cityId){
+    return this.cities.find(city => city.id === Number(cityId));
+  }
+
   writeStorage() {
     if (this.#storageAgent !== null) {
       this.#storageAgent.store([this.userPreferences, this.cities]);

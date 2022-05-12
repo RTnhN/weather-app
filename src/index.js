@@ -17,6 +17,9 @@ database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.addCit
 
 function updateWeather(){
   database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.updateCity.bind(DOMinstance), database.updateCity.bind(database)));
+  if (DOMinstance.weatherPageCity !== undefined){
+    DOMinstance.makeWeatherPage(database.getCityById(DOMinstance.weatherPageCity.id))
+  }
 }
 
 setTimeout(() => {
@@ -53,3 +56,11 @@ function toggleUnits(){
 }
 
 DOMinstance.changeUnitsButton.addEventListener('click', toggleUnits);
+
+function makeWeatherPage(event) {
+  const cityId = (event.target.tagName === "SPAN") ? event.target.parentElement.id : event.target.id;
+  DOMinstance.makeWeatherPage(database.getCityById(cityId));
+}
+
+DOMinstance.citiesList.addEventListener('click', makeWeatherPage);
+
