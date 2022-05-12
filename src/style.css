@@ -7,6 +7,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+:root{
+  --header-color: hsl(240, 58%, 49%);
+}
+
 #content{
   width: 100vw;
   height: 100vh;
@@ -25,7 +29,7 @@
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
   grid-template-areas: '. searchEntry autoLocateButton';
-  background-color: green;
+  background-color: var(--header-color);
   align-items: center;
   padding: 1em;
 }
@@ -47,10 +51,11 @@ border: none;
 
 #citiesContainer{
   grid-area: citiesContainer;
-  background-color: red;
+  background-color: rgb(44, 41, 48);
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: inset 0 3px 3px hsl(0,0%,0%);
 }
 
 #searchResults{
@@ -66,6 +71,7 @@ border: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: .25rem;
 }
 
 #citiesList div{
@@ -90,9 +96,9 @@ border: none;
 #cityBar{
   grid-area: cityBar;
   display: grid;
-  grid-template-columns: 5rem 1fr 5rem;
+  grid-template-columns: 2rem 1fr 2rem;
   grid-template-areas: 'openCitiesHalf cityNameTitle menuContainer';
-  background-color: blue;
+  background-color: var(--header-color);
   align-items: center;
   padding: 1em;
 }
@@ -103,18 +109,20 @@ border: none;
   background: none;
   border: none;
   justify-self: flex-start;
+  display: none;
 }
 
 #cityNameTitle{
   grid-area: cityNameTitle;
   justify-self: center;
   font-size: 2rem;
+  color: white;
 }
 
 #menu{
   grid-area: menuContainer;
   height: 2rem;
-  width: 5rem;
+  width: 2rem;
   background: none;
   border: none;
   display: flex;
@@ -157,7 +165,6 @@ border: none;
 
 #weatherContainer{
   grid-area: weatherContainer;
-  background-color: yellow;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,6 +172,12 @@ border: none;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  box-shadow: inset 3px 3px 3px hsl(0,0%,0%);
+}
+#placeholderTextWeatherContainer{
+  margin-top: 1rem;
+  font-size: 2rem;
+
 }
 
 #weatherSubcontainer{
