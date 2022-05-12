@@ -83,6 +83,12 @@ class DOM {
     this.cityBar.appendChild(this.cityNameTitle);
     this.cityBar.appendChild(this.menu);
 
+    const placeholderTextWeatherContainer = document.createElement('p');
+    placeholderTextWeatherContainer.id = 'placeholderTextWeatherContainer';
+    placeholderTextWeatherContainer.textContent = 'Select a city to see the weather';
+
+    this.weatherContainer.appendChild(placeholderTextWeatherContainer);
+
     placeholder.appendChild(this.searchBar);
     placeholder.appendChild(this.citiesContainer);
     placeholder.appendChild(this.cityBar);
