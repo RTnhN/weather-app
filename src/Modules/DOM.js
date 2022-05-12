@@ -172,6 +172,7 @@ class DOM {
   }
   removeCity(cityId) {
     this.citiesList.removeChild(document.getElementById(cityId));
+    this.weatherPageCity = undefined;
     this.weatherContainer.style = '';
   }
   makeWeatherPage(city) {
