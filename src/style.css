@@ -80,6 +80,17 @@ color:white;
   position: absolute;
 }
 
+#searchResults div{
+  width: 100%;
+  text-align: center;
+}
+
+#searchResults div:hover{
+  cursor: pointer;
+  background-color: hsla(0, 0%, 80%, 1);
+}
+
+
 #citiesList{
   display: flex;
   flex-direction: column;
