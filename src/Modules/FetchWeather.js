@@ -3,7 +3,7 @@ import City from "./City";
 class FetchWeather {
   weatherData;
 
-  async getWeather(city, DOMcallback, databaseCallback){
+  async getWeather(city, DOMcallback, databaseCallback, resolve, reject){
     const { latitude } = city;
     const { longitude } = city;
     const { timezone } = city;
@@ -20,8 +20,11 @@ class FetchWeather {
       
       if (DOMcallback) DOMcallback(cityObject);
       if (databaseCallback) databaseCallback(cityObject);
+      if (resolve) resolve();
     }
+    if (reject) reject();
   }
-}
+  }
+ 
 
 export default FetchWeather;

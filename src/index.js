@@ -13,7 +13,9 @@ const localStorageAgent = new LocalStorageAgent(City, 'cities');
 const database = new Database(localStorageAgent);
 const DOMinstance = new DOM(contentNode, database.userPreferences);
 
-database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance)));
+const citiesPromises = database.cities.map(city => (new Promise((resolve, reject) => fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance), undefined, resolve, reject))));
+
+Promise.all(citiesPromises).then(()=> (database.cities.forEach((city, index) => document.getElementById(city.id).style.order = index)));
 
 if (window.innerWidth < 600){
   DOMinstance.closeSidebar()
@@ -22,7 +24,7 @@ if (window.innerWidth < 600){
 function updateWeather(){
   database.cities.forEach(city => fetchWeather.getWeather(city, DOMinstance.updateCity.bind(DOMinstance), database.updateCity.bind(database)));
   if (DOMinstance.weatherPageCity !== undefined){
-    DOMinstance.makeWeatherPage(database.getCityById(DOMinstance.weatherPageCity.id))
+    DOMinstance.makeWeatherPage(database.getCityById(DOMinstance.weatherPageCity.id));
   }
 }
 
@@ -46,7 +48,8 @@ function citySelected(event){
   DOMinstance.clearCitySearchList();
   const cityId = Number(event.target.id);
   const targetCity = fetchCities.cityData.find(city => city.id === cityId);
-  fetchWeather.getWeather(targetCity, DOMinstance.addCity.bind(DOMinstance), database.addCity.bind(database))
+  const cityAdded = new Promise((resolve, reject) => fetchWeather.getWeather(targetCity, DOMinstance.addCity.bind(DOMinstance), database.addCity.bind(database), resolve, reject))
+  cityAdded.then(()=> (database.cities.forEach((city, index) => document.getElementById(city.id).style.order = index)));
 }
 DOMinstance.searchResults.addEventListener('click', citySelected)
 
