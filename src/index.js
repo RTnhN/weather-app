@@ -65,7 +65,6 @@ function makeWeatherPage(event) {
   if (event.target.id === 'citiesList') return;
   const cityDiv = (event.target.tagName === "SPAN") ? event.target.parentElement : event.target;
   DOMinstance.makeWeatherPage(database.getCityById(cityDiv.id));
-  cityDiv.style.backgroundColor = 'hsl(0,0%,70%)';
 }
 
 DOMinstance.citiesList.addEventListener('click', makeWeatherPage);

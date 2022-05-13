@@ -228,6 +228,7 @@ class DOM {
     this.weatherSubcontainer.appendChild(this.weatherPageHighTemp);
     this.weatherSubcontainer.appendChild(this.weatherPageLowTemp);
     this.weatherContainer.appendChild(this.weatherSubcontainer);
+    document.getElementById(city.id).style.backgroundColor = 'hsl(0,0%,70%)';
   }
   clearWeatherPage() {
     while (this.weatherContainer.firstChild) {
