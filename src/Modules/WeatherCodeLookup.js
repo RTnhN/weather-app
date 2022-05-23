@@ -1,4 +1,4 @@
-import sunny from '../Assets/sunny.jpg';
+import clear from '../Assets/clear.jpg';
 import partially_cloudy from '../Assets/partially_cloudy.jpg';
 import cloudy from '../Assets/cloudy.jpg';
 import foggy from '../Assets/foggy.jpg';
@@ -11,9 +11,9 @@ import thunderstorm from '../Assets/thunderstorm.jpg';
 
 const weatherCodes = {
     0: {
-        "icon": "sunny",
-        "name": "Sunny",
-        "image": sunny
+        "icon": "clear_day",
+        "name": "Clear",
+        "image": clear
     },
     1: {
         "icon": "partly_cloudy_day",
