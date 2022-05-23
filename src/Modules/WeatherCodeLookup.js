@@ -22,7 +22,7 @@ const weatherCodes = {
     },
     2: {
         "icon": "partly_cloudy_day",
-        "name": "Partially Cloudy",
+        "name": "Mostly Cloudy",
         'image': partially_cloudy
     },
     3: {
