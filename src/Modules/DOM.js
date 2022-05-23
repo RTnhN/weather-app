@@ -68,13 +68,13 @@ class DOM {
     this.menuContents.classList.add('menuContents');
     this.menuContents.classList.add('menuHide');
 
-    this.changeUnitsButton = document.createElement('div');
+    this.changeUnitsButton = document.createElement('button');
     this.changeUnitsButton.id = 'changeUnitsButton';
     this.changeUnitsButton.textContent = this.tempF
       ? "Change temp to °C"
       : "Change temp to °F";
 
-    this.removeCityButton = document.createElement('div');
+    this.removeCityButton = document.createElement('button');
     this.removeCityButton.id = 'removeCityButton';
     this.removeCityButton.textContent = 'Remove city from city list';
 
@@ -123,7 +123,7 @@ class DOM {
 
   makeCitySearchList(city) {
     const placeholder = document.createDocumentFragment();
-    const cityDiv = document.createElement('div');
+    const cityDiv = document.createElement('button');
     cityDiv.id = city.id;
     let cityName;
     if (city.country === 'United States') {
@@ -138,7 +138,7 @@ class DOM {
 
   addCity(city) {
     this.citiesList.style.display = '';
-    const cityDiv = document.createElement("div");
+    const cityDiv = document.createElement("button");
     cityDiv.id = city.id;
     const weatherIcon = document.createElement('span');
     weatherIcon.textContent = this.weatherCodes[city.conditions].icon;
@@ -189,6 +189,20 @@ class DOM {
     this.weatherPageCity = undefined;
     this.weatherContainer.style.backgroundImage = '';
   }
+
+  clearCities(){
+    while(this.citiesList.lastChild){
+      this.citiesList.removeChild(this.citiesList.lastChild);
+    }
+  }
+
+  sortCities(cities){
+    const placeholder = document.createDocumentFragment();
+    cities.forEach(city => placeholder.appendChild(document.getElementById(city.id)));
+    this.clearCities();
+    this.citiesList.appendChild(placeholder);
+  }
+
   makeWeatherPage(city) {
     this.clearWeatherPage();
     this.weatherPageCity = city;

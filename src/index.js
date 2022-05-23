@@ -15,7 +15,7 @@ const DOMinstance = new DOM(contentNode, database.userPreferences);
 
 const citiesPromises = database.cities.map(city => (new Promise((resolve, reject) => fetchWeather.getWeather(city, DOMinstance.addCity.bind(DOMinstance), undefined, resolve, reject))));
 
-Promise.all(citiesPromises).then(()=> (database.cities.forEach((city, index) => document.getElementById(city.id).style.order = index)));
+Promise.all(citiesPromises).then(() => DOMinstance.sortCities(database.cities));
 
 if (window.innerWidth < 600){
   DOMinstance.closeSidebar()
@@ -37,7 +37,7 @@ function searchBarEntry(event) {
   if (event.target.value.length < 2) {
     DOMinstance.clearCitySearchList();
     return;
-  } else {
+  } else if (event.key !== 'Tab') {
     fetchCities.getCities(event.target.value, DOMinstance.makeSearchList.bind(DOMinstance));
   }
 }
@@ -49,7 +49,7 @@ function citySelected(event){
   const cityId = Number(event.target.id);
   const targetCity = fetchCities.cityData.find(city => city.id === cityId);
   const cityAdded = new Promise((resolve, reject) => fetchWeather.getWeather(targetCity, DOMinstance.addCity.bind(DOMinstance), database.addCity.bind(database), resolve, reject))
-  cityAdded.then(()=> (database.cities.forEach((city, index) => document.getElementById(city.id).style.order = index)));
+  cityAdded.then(() => DOMinstance.sortCities(database.cities));
 }
 DOMinstance.searchResults.addEventListener('click', citySelected)
 
