@@ -1,4 +1,3 @@
-import { format, add } from 'date-fns';
 import weatherCodes from './WeatherCodeLookup';
 import "../Styles/weather-icons.css";
 
@@ -146,13 +145,7 @@ class DOM {
     const cityName = document.createElement('span');
     cityName.textContent = city.name;
     const cityTime = document.createElement('span');
-    cityTime.textContent = format(
-      add(
-        add(
-          new Date(),
-          { minutes: new Date().getTimezoneOffset() }),
-        { seconds: city.utcOffsetSeconds }),
-      'h:mm aaa');
+    cityTime.textContent = city.prettyTime;
     const cityTemp = document.createElement('span');
     if (this.tempF) {
       cityTemp.textContent = `${city.currentTempF}°`;
@@ -171,13 +164,7 @@ class DOM {
     const cityElementChildren = cityElement.children;
     cityElementChildren[0].className = this.weatherCodes[city.conditions].icon;
     cityElementChildren[1].textContent = city.name;
-    cityElementChildren[2].textContent = format(
-      add(
-        add(
-          new Date(),
-          { minutes: new Date().getTimezoneOffset() }),
-        { seconds: city.utcOffsetSeconds }),
-      'h:mm aaa');
+    cityElementChildren[2].textContent = city.prettyTime;
     if (this.tempF) {
       cityElementChildren[3].textContent = `${city.currentTempF}°`;
     } else {

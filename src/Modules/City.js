@@ -1,3 +1,5 @@
+import { isWithinInterval, format, add } from 'date-fns';
+
 class City {
   id;
   name;
@@ -31,6 +33,13 @@ class City {
     this.timezone = cityData.timezone;
     this.utcOffsetSeconds = weatherData.utc_offset_seconds;
     this.lastFetchTime = weatherData.current_weather.time;
+    this.prettyTime = format(
+      add(
+        add(
+          new Date(),
+          { minutes: new Date().getTimezoneOffset() }),
+        { seconds: this.utcOffsetSeconds }),
+      'h:mm aaa');
     this.currentTempC = weatherData.current_weather.temperature;
     this.currentTempF = City.convertToF(this.currentTempC);
     this.todayHighTempC = weatherData.daily.temperature_2m_max[0];
