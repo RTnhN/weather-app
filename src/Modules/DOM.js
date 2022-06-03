@@ -1,5 +1,6 @@
 import { format, add } from 'date-fns';
 import weatherCodes from './WeatherCodeLookup';
+import "../Styles/weather-icons.css";
 
 class DOM {
   constructor(contentNode, userPreferences) {
@@ -141,8 +142,7 @@ class DOM {
     const cityDiv = document.createElement("button");
     cityDiv.id = city.id;
     const weatherIcon = document.createElement('span');
-    weatherIcon.textContent = this.weatherCodes[city.conditions].icon;
-    weatherIcon.classList.add('material-symbols-outlined');
+    weatherIcon.className = this.weatherCodes[city.conditions].icon;
     const cityName = document.createElement('span');
     cityName.textContent = city.name;
     const cityTime = document.createElement('span');
@@ -169,7 +169,7 @@ class DOM {
     const cityId = city.id;
     const cityElement = document.getElementById(cityId);
     const cityElementChildren = cityElement.children;
-    cityElementChildren[0].textContent = this.weatherCodes[city.conditions].icon;
+    cityElementChildren[0].className = this.weatherCodes[city.conditions].icon;
     cityElementChildren[1].textContent = city.name;
     cityElementChildren[2].textContent = format(
       add(

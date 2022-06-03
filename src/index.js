@@ -1,4 +1,4 @@
-import './style.css';
+import './Styles/style.css';
 import DOM from './Modules/DOM';
 import FetchCities from './Modules/FetchCities';
 import FetchWeather from './Modules/FetchWeather';

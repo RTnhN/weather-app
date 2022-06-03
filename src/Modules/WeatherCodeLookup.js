@@ -11,67 +11,67 @@ import thunderstorm from '../Assets/thunderstorm.jpg';
 
 const weatherCodes = {
     0: {
-        "icon": "clear_day",
+        "icon": "wi wi-day-sunny",
         "name": "Clear",
         "image": clear
     },
     1: {
-        "icon": "partly_cloudy_day",
+        "icon": "wi wi-day-cloudy",
         "name": "Partially Cloudy",
         'image': partially_cloudy
     },
     2: {
-        "icon": "partly_cloudy_day",
+        "icon": "wi wi-day-cloudy",
         "name": "Mostly Cloudy",
         'image': partially_cloudy
     },
     3: {
-        "icon": "cloudy",
+        "icon": "wi wi-cloud",
         "name": "Cloudy",
         'image': cloudy
     },
     45: {
-        "icon": "foggy",
+        "icon": "wi wi-fog",
         "name": "Foggy",
         'image': foggy
     },
     51: {
-        "icon": "rainy",
+        "icon": "wi wi-sprinkle",
         "name": "Light Drizzle",
         'image': drizzle
     },
     53: {
-        "icon": "rainy",
+        "icon": "wi wi-sprinkle",
         "name": "Moderate Drizzle",
         'image': drizzle
     },
     55: {
-        "icon": "rainy",
+        "icon": "wi wi-rain",
         "name": "Heavy Drizzle",
         'image': drizzle
     },
     56: {
-        "icon": "cloudy_snowing",
+        "icon": "wi wi-rain-mix",
         "name": "Freezing Drizzle",
         'image': freezing_drizzle
     },
     57: {
-        "icon": "cloudy_snowing",
+        "icon": "wi wi-rain-mix",
         "name": "Freezing Drizzle",
         'image': freezing_drizzle
     },
     61: {
-        "icon": "rainy",
+        "icon": "wi wi-rain",
         "name": "Light Rain",
         'image': rain
     },
     63: {
-        "icon": "rainy",
+        "icon": "wi wi-rain",
         "name": "Moderate Rain",
         'image': rain
     },
     65: {
-        "icon": "rainy",
+        "icon": "wi wi-rain",
         "name": "Heavy Rain",
         'image': rain
     },
@@ -131,18 +131,18 @@ const weatherCodes = {
         'image': snow
     },
     95: {
-        "icon": "thunderstorm",
+        "icon": "wi wi-thunderstorm",
         "name": "Thunderstorms",
         'image': thunderstorm
 
     },
     96: {
-        "icon": "thunderstorm",
+        "icon": "wi wi-thunderstorm",
         "name": "Thunderstorms",
         'image': thunderstorm
     },
     99: {
-        "icon": "thunderstorm",
+        "icon": "wi wi-thunderstorm",
         "name": "Thunderstorms",
         'image': thunderstorm
     }
