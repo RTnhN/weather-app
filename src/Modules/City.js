@@ -16,7 +16,10 @@ class City {
   timezone;
   currentTime;
   utcOffsetSeconds;
-  static convertToF(c){
+  sunrise;
+  sunset;
+  dayOrNight;
+ static convertToF(c){
     return Math.round((9/5*c+32))
   }
   constructor(cityData, weatherData){
@@ -46,6 +49,9 @@ class City {
     this.todayHighTempF = City.convertToF(this.todayHighTempC);
     this.todayLowTempC = weatherData.daily.temperature_2m_min[0];
     this.todayLowTempF = City.convertToF(this.todayLowTempC);
+    this.sunrise = weatherData.daily.sunrise[0];
+    this.sunset = weatherData.daily.sunset[0];
+    this.dayOrNight = isWithinInterval(new Date(), {start: Date.parse(this.sunrise), end: Date.parse(this.sunset)}) ? 'day' : 'night';
     this.conditions = weatherData.current_weather.weathercode;
     return this;
 

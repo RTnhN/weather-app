@@ -141,7 +141,7 @@ class DOM {
     const cityDiv = document.createElement("button");
     cityDiv.id = city.id;
     const weatherIcon = document.createElement('span');
-    weatherIcon.className = this.weatherCodes[city.conditions].icon;
+    weatherIcon.className = this.weatherCodes[city.conditions][city.dayOrNight].icon;
     const cityName = document.createElement('span');
     cityName.textContent = city.name;
     const cityTime = document.createElement('span');
@@ -162,7 +162,7 @@ class DOM {
     const cityId = city.id;
     const cityElement = document.getElementById(cityId);
     const cityElementChildren = cityElement.children;
-    cityElementChildren[0].className = this.weatherCodes[city.conditions].icon;
+    cityElementChildren[0].className = this.weatherCodes[city.conditions][city.dayOrNight].icon;
     cityElementChildren[1].textContent = city.name;
     cityElementChildren[2].textContent = city.prettyTime;
     if (this.tempF) {
@@ -193,7 +193,7 @@ class DOM {
   makeWeatherPage(city) {
     this.clearWeatherPage();
     this.weatherPageCity = city;
-    this.weatherContainer.style.backgroundImage = `url(${weatherCodes[city.conditions].image})`;
+    this.weatherContainer.style.backgroundImage = `url(${weatherCodes[city.conditions][city.dayOrNight].image})`;
     this.cityNameTitle.textContent = city.name;
     this.weatherPageTemp = document.createElement('p');
     this.weatherPageTemp.id = 'weatherPageTemp';
@@ -205,7 +205,7 @@ class DOM {
 
     this.weatherPageConditions = document.createElement('p');
     this.weatherPageConditions.id = 'weatherPageConditions';
-    this.weatherPageConditions.textContent = this.weatherCodes[city.conditions].name;
+    this.weatherPageConditions.textContent = this.weatherCodes[city.conditions][city.dayOrNight].name;
 
     this.weatherPageHighTemp = document.createElement('p');
     this.weatherPageHighTemp.id = 'weatherPageHighTemp';

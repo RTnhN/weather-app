@@ -11,140 +11,328 @@ import thunderstorm from '../Assets/thunderstorm.jpg';
 
 const weatherCodes = {
     0: {
-        "icon": "wi wi-day-sunny",
-        "name": "Clear",
-        "image": clear
+        "day": {
+            "icon": "wi wi-day-sunny",
+            "name": "Clear",
+            "image": clear
+        },
+        "night": {
+            "icon": "wi wi-night-clear",
+            "name": "Clear",
+            "image": clear
+        }
     },
     1: {
-        "icon": "wi wi-day-cloudy",
-        "name": "Partially Cloudy",
-        'image': partially_cloudy
+        "day": {
+            "icon": "wi wi-day-cloudy",
+            "name": "Partially Cloudy",
+            "image": partially_cloudy
+        },
+        "night": {
+            "icon": "wi wi-night-alt-cloudy",
+            "name": "Partially Cloudy",
+            "image": partially_cloudy
+        }
     },
     2: {
-        "icon": "wi wi-day-cloudy",
-        "name": "Mostly Cloudy",
-        'image': partially_cloudy
+        "day": {
+            "icon": "wi wi-day-cloudy",
+            "name": "Mostly Cloudy",
+            'image': partially_cloudy
+        },
+        "night": {
+            "icon": "wi wi-night-alt-cloudy",
+            "name": "Mostly Cloudy",
+            'image': partially_cloudy
+        }
     },
     3: {
-        "icon": "wi wi-cloud",
-        "name": "Cloudy",
-        'image': cloudy
+        "day": {
+            "icon": "wi wi-cloud",
+            "name": "Cloudy",
+            'image': cloudy
+        },
+        "night": {
+            "icon": "wi wi-cloud",
+            "name": "Cloudy",
+            'image': cloudy
+        }
     },
     45: {
-        "icon": "wi wi-fog",
-        "name": "Foggy",
-        'image': foggy
+        "day": {
+            "icon": "wi wi-day-fog",
+            "name": "Foggy",
+            'image': foggy
+        },
+        "night": {
+            "icon": "wi wi-night-fog",
+            "name": "Foggy",
+            'image': foggy
+        }
     },
     51: {
-        "icon": "wi wi-sprinkle",
-        "name": "Light Drizzle",
-        'image': drizzle
+        "day": {
+            "icon": "wi wi-day-sprinkle",
+            "name": "Light Drizzle",
+            'image': drizzle
+        },
+        "night": {
+            "icon": "wi wi-night-sprinkle",
+            "name": "Light Drizzle",
+            'image': drizzle
+        }
     },
     53: {
-        "icon": "wi wi-sprinkle",
-        "name": "Moderate Drizzle",
-        'image': drizzle
+        "day": {
+            "icon": "wi wi-day-sprinkle",
+            "name": "Moderate Drizzle",
+            'image': drizzle
+        },
+        "night": {
+            "icon": "wi wi-night-sprinkle",
+            "name": "Moderate Drizzle",
+            'image': drizzle
+        }
     },
     55: {
-        "icon": "wi wi-rain",
-        "name": "Heavy Drizzle",
-        'image': drizzle
+        "day": {
+            "icon": "wi wi-day-sprinkle",
+            "name": "Heavy Drizzle",
+            'image': drizzle
+        },
+        "night": {
+            "icon": "wi wi-night-alt-sprinkle",
+            "name": "Heavy Drizzle",
+            'image': drizzle
+        }
     },
     56: {
-        "icon": "wi wi-rain-mix",
-        "name": "Freezing Drizzle",
-        'image': freezing_drizzle
+        "day": {
+            "icon": "wi wi-day-rain-mix",
+            "name": "Freezing Drizzle",
+            'image': freezing_drizzle
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain-mix",
+            "name": "Freezing Drizzle",
+            'image': freezing_drizzle
+        }
     },
     57: {
-        "icon": "wi wi-rain-mix",
-        "name": "Freezing Drizzle",
-        'image': freezing_drizzle
+        "day": {
+            "icon": "wi wi-day-rain-mix",
+            "name": "Freezing Drizzle",
+            'image': freezing_drizzle
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain-mix",
+            "name": "Freezing Drizzle",
+            'image': freezing_drizzle
+        }
     },
     61: {
-        "icon": "wi wi-rain",
-        "name": "Light Rain",
-        'image': rain
+        "day": {
+            "icon": "wi wi-day-rain",
+            "name": "Light Rain",
+            'image': rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain",
+            "name": "Light Rain",
+            'image': rain
+        }
     },
     63: {
-        "icon": "wi wi-rain",
-        "name": "Moderate Rain",
-        'image': rain
+        "day": {
+            "icon": "wi wi-day-rain",
+            "name": "Moderate Rain",
+            'image': rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain",
+            "name": "Moderate Rain",
+            'image': rain
+        }
     },
     65: {
-        "icon": "wi wi-rain",
-        "name": "Heavy Rain",
-        'image': rain
+        "day": {
+            "icon": "wi wi-day-rain",
+            "name": "Heavy Rain",
+            'image': rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain",
+            "name": "Heavy Rain",
+            'image': rain
+        }
     },
     66: {
-        "icon": "cloudy_snowing",
-        "name": "Freezing Rain",
-        'image': freezing_rain
+         "day": {
+            "icon": "wi wi-day-sleet",
+            "name": "Freezing Rain",
+            'image': freezing_rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-sleet",
+            "name": "Freezing Rain",
+            'image': freezing_rain
+        }
     },
     67: {
-        "icon": "cloudy_snowing",
-        "name": "Freezing Rain",
-        'image': freezing_rain
+        "day": {
+            "icon": "wi wi-day-sleet",
+            "name": "Freezing Rain",
+            'image': freezing_rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-sleet",
+            "name": "Freezing Rain",
+            'image': freezing_rain
+        }
     },
     71: {
-        "icon": "cloudy_snowing",
-        "name": "Freezing Rain",
-        'image': freezing_rain
+        "day": {
+            "icon": "wi wi-day-sleet",
+            "name": "Freezing Rain",
+            'image': freezing_rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-sleet",
+            "name": "Freezing Rain",
+            'image': freezing_rain
+        }
     },
     73: {
-        "icon": "cloudy_snowing",
-        "name": "Snow Fall",
-        'image': snow
+        "day": {
+            "icon": "wi wi-day-snow",
+            "name": "Snow Fall",
+            'image': snow
+        },
+        "night": {
+            "icon": "wi wi-night-alt-snow",
+            "name": "Snow Fall",
+            'image': snow
+        }
     },
     75: {
-        "icon": "cloudy_snowing",
-        "name": "Snow Fall",
-        'image': snow
+        "day": {
+            "icon": "wi wi-day-snow",
+            "name": "Snow Fall",
+            'image': snow
+        },
+        "night": {
+            "icon": "wi wi-night-alt-snow",
+            "name": "Snow Fall",
+            'image': snow
+        }
     },
     77: {
-        "icon": "cloudy_snowing",
-        "name": "Snow Fall",
-        'image': snow
+        "day": {
+            "icon": "wi wi-day-snow",
+            "name": "Snow Fall",
+            'image': snow
+        },
+        "night": {
+            "icon": "wi wi-night-alt-snow",
+            "name": "Snow Fall",
+            'image': snow
+        }
     },
     80: {
-        "icon": "rainy",
-        "name": "Rain Showers",
-        'image': rain
+        "day": {
+            "icon": "wi wi-day-rain",
+            "name": "Rain Showers",
+            'image': rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain",
+            "name": "Rain Showers",
+            'image': rain
+        }
     },
     81: {
-        "icon": "rainy",
-        "name": "Rain Showers",
-        'image': rain
+        "day": {
+            "icon": "wi wi-day-rain",
+            "name": "Rain Showers",
+            'image': rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain",
+            "name": "Rain Showers",
+            'image': rain
+        }
     },
     82: {
-        "icon": "rainy",
-        "name": "Rain Showers",
-        'image': rain
+        "day": {
+            "icon": "wi wi-day-rain",
+            "name": "Rain Showers",
+            'image': rain
+        },
+        "night": {
+            "icon": "wi wi-night-alt-rain",
+            "name": "Rain Showers",
+            'image': rain
+        }
     },
     85: {
-        "icon": "cloudy_snowing",
-        "name": "Snow Showers",
-        'image': snow
+        "day": {
+            "icon": "wi wi-day-snow",
+            "name": "Snow Showers",
+            'image': snow
+        },
+        "night": {
+            "icon": "wi wi-night-alt-snow",
+            "name": "Snow Showers",
+            'image': snow
+        }
     },
     86: {
-        "icon": "cloudy_snowing",
-        "name": "Snow Showers",
-        'image': snow
+        "day": {
+            "icon": "wi wi-day-snow",
+            "name": "Snow Showers",
+            'image': snow
+        },
+        "night": {
+            "icon": "wi wi-night-alt-snow",
+            "name": "Snow Showers",
+            'image': snow
+        }
     },
     95: {
-        "icon": "wi wi-thunderstorm",
-        "name": "Thunderstorms",
-        'image': thunderstorm
-
+        "day": {
+            "icon": "wi wi-day-thunderstorm",
+            "name": "Thunderstorms",
+            'image': thunderstorm
+        },
+        "night": {
+            "icon": "wi wi-night-alt-thunderstorm",
+            "name": "Thunderstorms",
+            'image': thunderstorm
+        }
     },
     96: {
-        "icon": "wi wi-thunderstorm",
-        "name": "Thunderstorms",
-        'image': thunderstorm
+        "day": {
+            "icon": "wi wi-day-thunderstorm",
+            "name": "Thunderstorms",
+            'image': thunderstorm
+        },
+        "night": {
+            "icon": "wi wi-night-alt-thunderstorm",
+            "name": "Thunderstorms",
+            'image': thunderstorm
+        }
     },
     99: {
-        "icon": "wi wi-thunderstorm",
-        "name": "Thunderstorms",
-        'image': thunderstorm
+        "day": {
+            "icon": "wi wi-day-thunderstorm",
+            "name": "Thunderstorms",
+            'image': thunderstorm
+        },
+        "night": {
+            "icon": "wi wi-night-alt-thunderstorm",
+            "name": "Thunderstorms",
+            'image': thunderstorm
+        }
     }
 }
 
