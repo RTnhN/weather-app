@@ -51,7 +51,10 @@ class City {
     this.todayLowTempF = City.convertToF(this.todayLowTempC);
     this.sunrise = weatherData.daily.sunrise[0];
     this.sunset = weatherData.daily.sunset[0];
-    this.dayOrNight = isWithinInterval(new Date(), {start: Date.parse(this.sunrise), end: Date.parse(this.sunset)}) ? 'day' : 'night';
+    const localEpochTime = Date.now() + this.utcOffsetSeconds*1000 + new Date().getTimezoneOffset()*60*1000;
+    const localSunriseTime = Date.parse(this.sunrise);
+    const localSunsetTime = Date.parse(this.sunset);
+    this.dayOrNight = (localSunriseTime < localEpochTime && localSunsetTime > localEpochTime) ? 'day' : 'night';
     this.conditions = weatherData.current_weather.weathercode;
     return this;
 
