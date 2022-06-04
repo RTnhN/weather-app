@@ -193,7 +193,7 @@ class DOM {
   makeWeatherPage(city) {
     this.clearWeatherPage();
     this.weatherPageCity = city;
-    this.weatherContainer.style.backgroundImage = `url(${weatherCodes[city.conditions][city.dayOrNight].image})`;
+    this.weatherContainer.style.backgroundImage = `url(${DOM.randomImage(weatherCodes[city.conditions][city.dayOrNight].image)})`;
     this.cityNameTitle.textContent = city.name;
     this.weatherPageTemp = document.createElement('p');
     this.weatherPageTemp.id = 'weatherPageTemp';
@@ -273,6 +273,9 @@ class DOM {
     } else {
       this.citiesContainer.style.setProperty('display', 'none');
     }
+  }
+  static randomImage(array){
+    return array[Math.floor(Math.random()*array.length)];
   }
 }
 
