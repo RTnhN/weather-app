@@ -1,5 +1,7 @@
 const widthFactor = "&w=2000";
 
+// Since this is only client side, it is important to not have any important keys in the code. Because of this, I need to have
+// all of the photo links here even though I could use the API to fetch links. The API is also rate limited at 60/hr.
 const sunny1 = 'https://images.unsplash.com/photo-1623846736569-1d90cba76d65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
 const sunny2 = 'https://images.unsplash.com/photo-1541734091135-d4a3c6235ed8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
 const sunny3 = 'https://images.unsplash.com/photo-1530530824905-661c2bb787f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
