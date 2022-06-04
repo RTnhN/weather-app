@@ -1,10 +1,39 @@
-import sunny1 from '../Assets/sunny/sunny1.jpg';
-import sunny2 from '../Assets/sunny/sunny2.jpg';
-import sunny3 from '../Assets/sunny/sunny3.jpg';
-import sunny4 from '../Assets/sunny/sunny4.jpg';
-import sunny5 from '../Assets/sunny/sunny5.jpg';
-import partially_cloudy from '../Assets/partially_cloudy.jpg';
-import cloudy from '../Assets/cloudy.jpg';
+const widthFactor = "&w=2000";
+
+const sunny1 = 'https://images.unsplash.com/photo-1623846736569-1d90cba76d65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NXxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const sunny2 = 'https://images.unsplash.com/photo-1541734091135-d4a3c6235ed8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const sunny3 = 'https://images.unsplash.com/photo-1530530824905-661c2bb787f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const sunny4 = 'https://images.unsplash.com/photo-1604183033685-3b76cc95459d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const sunny5 = 'https://images.unsplash.com/photo-1581354908133-4da430030400?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxKM3JlX2EtMFNIZ3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+
+const clear1 = 'https://images.unsplash.com/photo-1534841090574-cba2d662b62e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=compress'+widthFactor;
+const clear2 = 'https://images.unsplash.com/photo-1530362595721-980c84e38f04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxNMHVZcVBmcHNYNHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor
+const clear3 = 'https://images.unsplash.com/photo-1502800535574-504b47810f39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xNMHVZcVBmcHNYNHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor
+const clear4 = 'https://images.unsplash.com/photo-1534841090574-cba2d662b62e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxNMHVZcVBmcHNYNHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor
+
+const partially_cloudy_day1 = 'https://images.unsplash.com/photo-1615842995413-cb9e1b58b358?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxFSDFqX0JRTkFyc3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_day2 = 'https://images.unsplash.com/photo-1609881142760-298c2e76725b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xFSDFqX0JRTkFyc3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_day3 = 'https://images.unsplash.com/photo-1604503590948-73bdc05edc76?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxFSDFqX0JRTkFyc3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_day4 = 'https://images.unsplash.com/photo-1620457802547-a367cbcc9b6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxFSDFqX0JRTkFyc3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_day5 = 'https://images.unsplash.com/photo-1508611087707-c9d807892372?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxFSDFqX0JRTkFyc3x8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+
+const partially_cloudy_night1 = 'https://images.unsplash.com/photo-1542377575-1d0dcbd02d3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxyUXRsMnQ5S0ZPMHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_night2 = 'https://images.unsplash.com/photo-1501418611786-e29f9929fe03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxyUXRsMnQ5S0ZPMHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_night3 = 'https://images.unsplash.com/photo-1481988535861-271139e06469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxyUXRsMnQ5S0ZPMHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const partially_cloudy_night4 = 'https://images.unsplash.com/photo-1615842995413-cb9e1b58b358?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xyUXRsMnQ5S0ZPMHx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+
+const cloudy_day1 = 'https://images.unsplash.com/photo-1604605801364-3e05c0b4b77c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxsTWJWX2hCb2pTa3x8ZW58MHx8fHw%3D&auto=compress'
+const cloudy_day2 = 'https://images.unsplash.com/photo-1583755689194-210010d31d21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxsTWJWX2hCb2pTa3x8ZW58MHx8fHw%3D&auto=compress'
+const cloudy_day3 = 'https://images.unsplash.com/photo-1598717123623-994ab270a08e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xsTWJWX2hCb2pTa3x8ZW58MHx8fHw%3D&auto=compress'
+const cloudy_day4 = 'https://images.unsplash.com/photo-1597085682610-ab9d49004ede?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxsTWJWX2hCb2pTa3x8ZW58MHx8fHw%3D&auto=compress'
+
+const cloudy_night1 = 'https://images.unsplash.com/photo-1486896427952-71586fb5976a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxfSlRERnBTSENxRXx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const cloudy_night2 = 'https://images.unsplash.com/photo-1604083142449-79b1babd12d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxfSlRERnBTSENxRXx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const cloudy_night3 = 'https://images.unsplash.com/photo-1533983272060-edb6f56af634?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3xfSlRERnBTSENxRXx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+const cloudy_night4 = 'https://images.unsplash.com/photo-1500740516770-92bd004b996e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NHxfSlRERnBTSENxRXx8ZW58MHx8fHw%3D&auto=compress'+widthFactor;
+
+
+
 import foggy from '../Assets/foggy.jpg';
 import drizzle from '../Assets/drizzle.jpg';
 import freezing_drizzle from '../Assets/freezing_drizzle.jpg';
@@ -23,43 +52,43 @@ const weatherCodes = {
         "night": {
             "icon": "wi wi-night-clear",
             "name": "Clear",
-            "image": [sunny1]
+            "image": [clear1, clear2, clear3, clear4]
         }
     },
     1: {
         "day": {
             "icon": "wi wi-day-cloudy",
             "name": "Partially Cloudy",
-            "image": [partially_cloudy]
+            "image": [partially_cloudy_day1, partially_cloudy_day2, partially_cloudy_day3, partially_cloudy_day4, partially_cloudy_day5]
         },
         "night": {
             "icon": "wi wi-night-alt-cloudy",
             "name": "Partially Cloudy",
-            "image": [partially_cloudy]
+            "image": [partially_cloudy_night1, partially_cloudy_night2, partially_cloudy_night3, partially_cloudy_night4]
         }
     },
     2: {
         "day": {
             "icon": "wi wi-day-cloudy",
             "name": "Mostly Cloudy",
-            'image': [partially_cloudy]
+            "image": [partially_cloudy_day1, partially_cloudy_day2, partially_cloudy_day3, partially_cloudy_day4, partially_cloudy_day5]
         },
         "night": {
             "icon": "wi wi-night-alt-cloudy",
             "name": "Mostly Cloudy",
-            'image': [partially_cloudy]
+            "image": [partially_cloudy_night1, partially_cloudy_night2, partially_cloudy_night3, partially_cloudy_night4]
         }
     },
     3: {
         "day": {
             "icon": "wi wi-cloud",
             "name": "Cloudy",
-            'image': [cloudy]
+            'image': [cloudy_day1, cloudy_day2, cloudy_day3, cloudy_day4]
         },
         "night": {
             "icon": "wi wi-cloud",
             "name": "Cloudy",
-            'image': [cloudy]
+            'image': [cloudy_night1, cloudy_night2, cloudy_night3, cloudy_night4]
         }
     },
     45: {
