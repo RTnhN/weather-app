@@ -1,4 +1,5 @@
 import { isWithinInterval, format, add } from 'date-fns';
+import weatherCodes from './WeatherCodeLookup';
 
 class City {
   id;
@@ -56,6 +57,10 @@ class City {
     const localSunsetTime = Date.parse(this.sunset);
     this.dayOrNight = (localSunriseTime < localEpochTime && localSunsetTime > localEpochTime) ? 'day' : 'night';
     this.conditions = weatherData.current_weather.weathercode;
+    weatherCodes[this.conditions][this.dayOrNight].image.forEach(url => {
+      const img = new Image;
+      img.src = url;
+    });
     return this;
 
   }
