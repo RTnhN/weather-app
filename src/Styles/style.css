@@ -227,11 +227,12 @@ color:white;
   display: grid;
   width: min(80%, 500px);
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1.2fr 1fr 1fr;
+  grid-template-rows: 1.2fr 1fr 1fr 1fr;
   grid-template-areas:
   'currentTemp currentTemp'
   'currentConditions currentConditions'
-  'dailyHigh dailyLow';
+  'dailyHigh dailyLow'
+  'sunrise sunset';
   background-color: hsla(0, 0%, 100%, 0.75);
   margin-top: 2rem;
 }
@@ -261,6 +262,19 @@ color:white;
   font-size: min(3rem, 4vw);
 }
 
+#sunriseTime{
+  grid-area: sunrise;
+  align-self: center;
+  justify-self: center;
+  font-size: min(2rem, 4vw);
+}
+
+#sunsetTime{
+  grid-area: sunset;
+  align-self: center;
+  justify-self: center;
+  font-size: min(2rem, 4vw);
+}
 /* media queries */
 
 @media screen and (max-width: 600px) {

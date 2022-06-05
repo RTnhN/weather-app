@@ -222,12 +222,36 @@ class DOM {
     } else {
       this.weatherPageLowTemp.textContent = `Low ${city.todayLowTempC}°`;
     }
+    this.sunriseTime = document.createElement('p');
+    this.sunriseTime.id = 'sunriseTime';
+
+    this.sunriseIcon = document.createElement('span');
+    this.sunriseIcon.className = 'wi wi-sunrise';
+
+    this.sunriseText = document.createElement('span');
+    this.sunriseText.textContent = city.prettySunriseTime;
+
+    this.sunriseTime.append(this.sunriseIcon, this.sunriseText)
+
+    this.sunsetTime = document.createElement('p');
+    this.sunsetTime.id = 'sunsetTime';
+
+    this.sunsetIcon = document.createElement('span');
+    this.sunsetIcon.className = 'wi wi-sunset';
+
+    this.sunsetText = document.createElement('span');
+    this.sunsetText.textContent = city.prettySunsetTime;
+
+    this.sunsetTime.append(this.sunsetIcon, this.sunsetText);
+
     this.weatherSubcontainer = document.createElement('div');
     this.weatherSubcontainer.id = 'weatherSubcontainer';
     this.weatherSubcontainer.appendChild(this.weatherPageTemp);
     this.weatherSubcontainer.appendChild(this.weatherPageConditions);
     this.weatherSubcontainer.appendChild(this.weatherPageHighTemp);
     this.weatherSubcontainer.appendChild(this.weatherPageLowTemp);
+    this.weatherSubcontainer.appendChild(this.sunriseTime);
+    this.weatherSubcontainer.appendChild(this.sunsetTime);
     this.weatherContainer.appendChild(this.weatherSubcontainer);
     document.getElementById(city.id).style.backgroundColor = 'hsl(0,0%,70%)';
   }
