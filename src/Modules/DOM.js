@@ -40,8 +40,14 @@ class DOM {
     this.citiesList = document.createElement('div');
     this.citiesList.id = 'citiesList';
 
+    this.webAttribution = document.createElement('a');
+    this.webAttribution.id ='webAttribution';
+    this.webAttribution.textContent = 'Made with 💻 in Texas';
+    this.webAttribution.href = 'https://github.com/RTnhN/weather-app';
+
     this.citiesContainer.appendChild(this.searchResults);
     this.citiesContainer.appendChild(this.citiesList);
+    this.citiesContainer.appendChild(this.webAttribution);
 
     this.cityBar = document.createElement("div");
     this.cityBar.id = 'cityBar';

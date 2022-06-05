@@ -78,6 +78,7 @@ color:white;
   background-color: hsla(0, 0%, 100%, 0.95);
   width: 18rem;
   position: absolute;
+  flex-grow:1;
 }
 
 #searchResults button{
@@ -99,6 +100,7 @@ color:white;
   flex-direction: column;
   align-items: center;
   margin-top: .25rem;
+  flex-grow: 1;
 }
 
 #citiesList button{
@@ -117,6 +119,11 @@ color:white;
 
 #citiesList button:hover, #citiesList button:focus{
   background-color: hsla(0, 0%, 80%, 1);
+}
+
+#webAttribution{
+  color: white;
+  text-decoration: none;
 }
 
 /* city bar */
