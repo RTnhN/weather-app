@@ -134,16 +134,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="259.42425"
-     inkscape:cy="288.04746"
+     inkscape:zoom="2.4444903"
+     inkscape:cx="323.90158"
+     inkscape:cy="275.49575"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1848"
-     inkscape:window-height="1016"
-     inkscape:window-x="72"
-     inkscape:window-y="27"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:snap-global="false"
      units="pc" />
@@ -155,7 +155,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -611,38 +611,38 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.62922692px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0544384"
-       x="118.25607"
-       y="221.82513"
+       x="118.09818"
+       y="221.35147"
        id="text125580-9-3-6-6"><tspan
          sodipodi:role="line"
          id="tspan125578-0-85-1-2"
-         x="118.25607"
-         y="221.82513"
+         x="118.09818"
+         y="221.35147"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.62922692px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.0544384">75°</tspan></text>
     <rect
-       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.2656745;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.19889119;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect157509-8"
-       width="85.37648"
-       height="26.760994"
-       x="61.386997"
-       y="227.27394" />
+       width="85.44326"
+       height="14.986286"
+       x="61.195721"
+       y="245.55539" />
     <rect
-       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.2656745;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.20803782;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect157509-1-4"
-       width="85.37648"
-       height="26.760994"
-       x="61.287678"
-       y="257.70163" />
+       width="85.43412"
+       height="16.398119"
+       x="61.258858"
+       y="262.88306" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.82392073px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.17358792"
-       x="78.642395"
-       y="243.08136"
+       x="78.484505"
+       y="255.08073"
        id="text157528-7"><tspan
          sodipodi:role="line"
          id="tspan157526-2"
-         x="78.642395"
-         y="243.08136"
+         x="78.484505"
+         y="255.08073"
          style="stroke-width:1.17358792">TEMP CHART</tspan></text>
     <text
        xml:space="preserve"
@@ -861,6 +861,28 @@
          x="11.053074"
          y="187.22151"
          style="stroke-width:0.26458332">City name or zip code</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.62922692px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0544384"
+       x="85.391281"
+       y="228.08099"
+       id="text125580-9-3-5-7"><tspan
+         sodipodi:role="line"
+         id="tspan125578-0-85-8-5"
+         x="85.391281"
+         y="228.08099"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.62922692px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.0544384">5:00 am</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.62922692px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0544384"
+       x="84.613541"
+       y="233.09633"
+       id="text125580-9-3-5-7-3"><tspan
+         sodipodi:role="line"
+         id="tspan125578-0-85-8-5-5"
+         x="84.613541"
+         y="233.09633"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.62922692px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.0544384"> 8:00 pm</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
