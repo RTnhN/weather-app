@@ -83,6 +83,10 @@ function removeCity(){
   DOMinstance.removeCity(cityId);
   DOMinstance.clearWeatherPage();
   DOMinstance.toggleMenu();
+  if (database.cities[0] !== undefined){
+    DOMinstance.makeWeatherPage(database.cities[0])
+  }
+
 }
 
 DOMinstance.removeCityButton.addEventListener('click', removeCity);
