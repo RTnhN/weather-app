@@ -250,6 +250,12 @@ color:white;
   justify-self: center;
   font-size: min(7rem, 10vw);
 }
+
+#weatherPageTemp::after{
+  position: absolute;
+  content: "°";
+}
+
 #weatherPageConditions{
   grid-area: currentConditions;
   align-self: center;
@@ -262,11 +268,22 @@ color:white;
   justify-self: center;
   font-size: min(3rem, 4vw);
 }
+
+#weatherPageHighTemp::after{
+  position: absolute;
+  content: "°";
+}
+
 #weatherPageLowTemp{
   grid-area: dailyLow;
   align-self: center;
   justify-self: center;
   font-size: min(3rem, 4vw);
+}
+
+#weatherPageLowTemp::after{
+  position: absolute;
+  content: "°";
 }
 
 #sunriseTime{
