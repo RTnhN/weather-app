@@ -57,10 +57,6 @@ class DOM {
     this.openSidebarButton.textContent = "chevron_right";
     this.openSidebarButton.classList.add('material-symbols-outlined');
 
-    this.cityNameTitle = document.createElement('p');
-    this.cityNameTitle.id = 'cityNameTitle';
-    this.cityNameTitle.textContent = '';
-
     this.menu = document.createElement('div');
     this.menu.id = 'menu';
 
@@ -91,7 +87,6 @@ class DOM {
     this.menu.appendChild(this.menuContents);
 
     this.cityBar.appendChild(this.openSidebarButton);
-    this.cityBar.appendChild(this.cityNameTitle);
     this.cityBar.appendChild(this.menu);
 
     const placeholderTextWeatherContainer = document.createElement('p');
@@ -200,7 +195,11 @@ class DOM {
     this.clearWeatherPage();
     this.weatherPageCity = city;
     this.weatherContainer.style.backgroundImage = `url(${DOM.randomImage(weatherCodes[city.conditions][city.dayOrNight].image)})`;
+
+    this.cityNameTitle = document.createElement('p');
+    this.cityNameTitle.id = 'cityNameTitle';
     this.cityNameTitle.textContent = city.name;
+
     this.weatherPageTemp = document.createElement('p');
     this.weatherPageTemp.id = 'weatherPageTemp';
     if (this.tempF) {
@@ -252,6 +251,7 @@ class DOM {
 
     this.weatherSubcontainer = document.createElement('div');
     this.weatherSubcontainer.id = 'weatherSubcontainer';
+    this.weatherSubcontainer.appendChild(this.cityNameTitle);
     this.weatherSubcontainer.appendChild(this.weatherPageTemp);
     this.weatherSubcontainer.appendChild(this.weatherPageConditions);
     this.weatherSubcontainer.appendChild(this.weatherPageHighTemp);
@@ -265,7 +265,6 @@ class DOM {
     while (this.weatherContainer.firstChild) {
       this.weatherContainer.removeChild(this.weatherContainer.firstChild);
     }
-    this.cityNameTitle.textContent = '';
     Array.from(this.citiesList.children).forEach(div => div.style.backgroundColor = '');
   }
 

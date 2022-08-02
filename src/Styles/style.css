@@ -153,14 +153,6 @@ color:white;
   color: hsla(0, 0%, 85%, 0.75);
 }
 
-#cityNameTitle{
-  grid-area: cityNameTitle;
-  justify-self: center;
-  font-size: 2rem;
-  color: white;
-  text-align: center;
-}
-
 #menu{
   grid-area: menuContainer;
   height: 2rem;
@@ -234,8 +226,9 @@ color:white;
   display: grid;
   width: min(80%, 500px);
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1.2fr 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr 1.2fr 1fr 1fr 1fr;
   grid-template-areas:
+  'cityName cityName'
   'currentTemp currentTemp'
   'currentConditions currentConditions'
   'dailyHigh dailyLow'
@@ -244,10 +237,22 @@ color:white;
   margin-top: 2rem;
 }
 
+#cityNameTitle{
+  grid-area: cityName;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  font-size: min(4rem, 5vw);
+  width: 80%;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+}
+
 #weatherPageTemp{
   grid-area: currentTemp;
   align-self: center;
   justify-self: center;
+  text-align: center;
   font-size: min(7rem, 10vw);
 }
 
