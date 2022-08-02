@@ -242,7 +242,7 @@ color:white;
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: min(4rem, 5vw);
+  font-size: min(4rem, 6vw);
   width: 80%;
   border-bottom: 1px solid black;
   padding-bottom: 1rem;
@@ -254,7 +254,7 @@ color:white;
   align-self: center;
   justify-self: center;
   text-align: center;
-  font-size: min(7rem, 10vw);
+  font-size: min(7rem, 11vw);
 }
 
 #weatherPageTemp::after{
@@ -266,13 +266,13 @@ color:white;
   grid-area: currentConditions;
   align-self: center;
   justify-self: center;
-  font-size: min(4rem, 5vw)
+  font-size: min(4rem, 6vw)
 }
 #weatherPageHighTemp{
   grid-area: dailyHigh;
   align-self: center;
   justify-self: center;
-  font-size: min(3rem, 4vw);
+  font-size: min(3rem, 5vw);
 }
 
 #weatherPageHighTemp::after{
@@ -284,7 +284,7 @@ color:white;
   grid-area: dailyLow;
   align-self: center;
   justify-self: center;
-  font-size: min(3rem, 4vw);
+  font-size: min(3rem, 5vw);
 }
 
 #weatherPageLowTemp::after{
@@ -296,14 +296,14 @@ color:white;
   grid-area: sunrise;
   align-self: center;
   justify-self: center;
-  font-size: min(2rem, 4vw);
+  font-size: min(2rem, 5vw);
 }
 
 #sunsetTime{
   grid-area: sunset;
   align-self: center;
   justify-self: center;
-  font-size: min(2rem, 4vw);
+  font-size: min(2rem, 5vw);
 }
 
 /* media queries */
