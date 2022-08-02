@@ -69,6 +69,18 @@ class City {
   toString() {
     return this.name;
   }
+  flipDataOrder(obj){
+    const keys = Object.keys(obj);
+    const rows = obj.time.length;
+    let newArray = [];
+    let instanceObject = {};
+    for (let row = 0; row < rows; row++){
+      instanceObject={};
+      keys.forEach(key => instanceObject[key] = obj[key][row])
+      newArray.push(instanceObject);
+    }
+    return newArray;
+  }
 }
 
 export default City;
