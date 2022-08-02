@@ -89,9 +89,17 @@ class DOM {
     this.cityBar.appendChild(this.openSidebarButton);
     this.cityBar.appendChild(this.menu);
 
-    const placeholderTextWeatherContainer = document.createElement('p');
+    const placeholderTextWeatherContainer = document.createElement('div');
     placeholderTextWeatherContainer.id = 'placeholderTextWeatherContainer';
-    placeholderTextWeatherContainer.textContent = 'Select a city to see the weather';
+    // Normally I am opposed to using innerHTML, but in this case since it is just plain text with no input
+    // it should be fine. I am honestly spoiled by jsx and react. 
+    placeholderTextWeatherContainer.innerHTML = `
+    <h1>Welcome to this Weather App!</h1>
+    <br/>
+    <p>Select a city or type in the search bar to find a city to begin.</p>
+    <br/>
+    <p>To change the units or delete a city, click the info button in the top right of the page.</p>
+    `
 
     this.weatherContainer.appendChild(placeholderTextWeatherContainer);
 
