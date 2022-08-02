@@ -52,8 +52,8 @@ class City {
     this.todayLowTempF = City.convertToF(this.todayLowTempC);
     this.sunrise = weatherData.daily.sunrise[0];
     this.sunset = weatherData.daily.sunset[0];
-    this.prettySunriseTime = format(add(new Date(this.sunrise), { seconds: 0 }),'h:mm aaa');
-    this.prettySunsetTime =  format(add(new Date(this.sunset), { seconds: 0 }), 'h:mm aaa');
+    this.prettySunriseTime = format(new Date(this.sunrise),'h:mm aaa');
+    this.prettySunsetTime =  format(new Date(this.sunset), 'h:mm aaa');
     const localEpochTime = Date.now() + this.utcOffsetSeconds*1000 + new Date().getTimezoneOffset()*60*1000;
     const localSunriseTime = Date.parse(this.sunrise);
     const localSunsetTime = Date.parse(this.sunset);

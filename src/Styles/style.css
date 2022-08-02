@@ -282,6 +282,7 @@ color:white;
   justify-self: center;
   font-size: min(2rem, 4vw);
 }
+
 /* media queries */
 
 @media screen and (max-width: 600px) {

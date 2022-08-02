@@ -28,6 +28,7 @@ function updateWeather(){
   }
 }
 
+// Update every minute on the minute
 setTimeout(() => {
   setInterval(updateWeather, 60000);
   updateWeather();
