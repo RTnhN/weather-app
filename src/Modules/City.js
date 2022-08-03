@@ -20,9 +20,14 @@ class City {
   sunrise;
   sunset;
   dayOrNight;
- static convertToF(c){
+  static convertToF(c){
     return Math.round((9/5*c+32))
   }
+
+  static convertToInch(mm){
+    return Math.round((mm/25.4)*100)/100
+  }
+
   constructor(cityData, weatherData){
     this.updateCity(cityData,weatherData);
   }
@@ -63,6 +68,7 @@ class City {
       const img = new Image;
       img.src = url;
     });
+    this.graphData = this.flipDataOrder(weatherData.hourly)
     return this;
 
   }
@@ -71,12 +77,15 @@ class City {
   }
   flipDataOrder(obj){
     const keys = Object.keys(obj);
-    const rows = obj.time.length;
+    const rows = 72;
     let newArray = [];
     let instanceObject = {};
     for (let row = 0; row < rows; row++){
       instanceObject={};
       keys.forEach(key => instanceObject[key] = obj[key][row])
+      instanceObject.time = new Date(instanceObject.time+"Z")
+      instanceObject.temperature_2mF = City.convertToF(instanceObject.temperature_2m);
+      instanceObject.precipitationInch = City.convertToInch(instanceObject.precipitation);
       newArray.push(instanceObject);
     }
     return newArray;

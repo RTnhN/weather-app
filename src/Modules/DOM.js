@@ -1,5 +1,6 @@
 import weatherCodes from './WeatherCodeLookup';
 import "../Styles/weather-icons.css";
+import * as Plot from "@observablehq/plot";
 
 class DOM {
   constructor(contentNode, userPreferences) {
@@ -204,7 +205,7 @@ class DOM {
     this.weatherPageCity = city;
     this.weatherContainer.style.backgroundImage = `url(${DOM.randomImage(weatherCodes[city.conditions][city.dayOrNight].image)})`;
 
-    this.cityNameTitle = document.createElement('p');
+    this.cityNameTitle = document.createElement('h1');
     this.cityNameTitle.id = 'cityNameTitle';
     this.cityNameTitle.textContent = city.name;
 
@@ -256,6 +257,47 @@ class DOM {
     this.sunsetText.textContent = city.prettySunsetTime;
 
     this.sunsetTime.append(this.sunsetIcon, this.sunsetText);
+    
+    this.tempPlotTitle = document.createElement('h2');
+    this.tempPlotTitle.id = 'tempPlotTitle';
+    this.tempPlotTitle.textContent = 'Temperature Forecast';
+
+    this.tempPlot = Plot.plot({
+      marks: [Plot.line(city.graphData, {
+        x:"time", 
+        y: this.tempF ? "temperature_2mF" : "temperature_2m",
+        strokeWidth: 4})],
+      x: {ticks: 8, label: ""},
+      y: {ticks: 6, label: ""},
+      style: {background: "none", color:"black", fontSize: 20},
+      marginLeft: 80,
+      marginRight: 80,
+      insetBottom: 20,
+      insetTop: 20,
+      insetLeft: 10,
+      insetRight: 10,
+    })
+    this.tempPlot.id = "tempPlot";
+
+    this.precptPlotTitle = document.createElement('h2');
+    this.precptPlotTitle.id = 'precptPlotTitle';
+    this.precptPlotTitle.textContent = `Precipitation Forecast(${this.tempF ? "inch" : "mm"})`;
+
+    this.precptPlot = Plot.plot({
+      y: {label: ""},
+      x: {ticks: 5},
+      marks: [Plot.line(city.graphData, {
+        x:"time", 
+        y:this.tempF ? "precipitationInch" : "precipitation", strokeWidth: 4})],
+      style: {background: "none", color:"black", fontSize: 20},
+      marginLeft: 80,
+      marginRight: 80,
+      insetBottom: 20,
+      insetTop: 20,
+      insetLeft: 10,
+      insetRight: 10,
+    })
+    this.precptPlot.id = "precptPlot";
 
     this.weatherSubcontainer = document.createElement('div');
     this.weatherSubcontainer.id = 'weatherSubcontainer';
@@ -266,6 +308,10 @@ class DOM {
     this.weatherSubcontainer.appendChild(this.weatherPageLowTemp);
     this.weatherSubcontainer.appendChild(this.sunriseTime);
     this.weatherSubcontainer.appendChild(this.sunsetTime);
+    this.weatherSubcontainer.appendChild(this.tempPlotTitle);
+    this.weatherSubcontainer.appendChild(this.tempPlot);
+    this.weatherSubcontainer.appendChild(this.precptPlotTitle);
+    this.weatherSubcontainer.appendChild(this.precptPlot);
     this.weatherContainer.appendChild(this.weatherSubcontainer);
     document.getElementById(city.id).style.backgroundColor = 'hsl(0,0%,70%)';
   }

@@ -11,11 +11,6 @@
   --cities-list-color: hsl(270, 1%, 27%);
 }
 
-body {
-  overscroll-behavior: contain;
-  touch-action: none;
-}
-
 #content{
   width: 100vw;
   height: 100vh;
@@ -226,13 +221,17 @@ color:white;
   display: grid;
   width: min(80%, 500px);
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1.2fr 1.2fr 1fr 1fr 1fr;
+  grid-template-rows: 1.2fr 1.2fr 1fr 1fr 1fr .5fr auto .5fr auto;
   grid-template-areas:
   'cityName cityName'
   'currentTemp currentTemp'
   'currentConditions currentConditions'
   'dailyHigh dailyLow'
-  'sunrise sunset';
+  'sunrise sunset'
+  'tempPlotTitle tempPlotTitle'
+  'tempPlot tempPlot'
+  'precptPlotTitle precptPlotTitle'
+  'precptPlot precptPlot';
   background-color: hsla(0, 0%, 100%, 0.75);
   margin-top: 2rem;
 }
@@ -304,6 +303,31 @@ color:white;
   align-self: center;
   justify-self: center;
   font-size: min(2rem, 5vw);
+}
+
+#tempPlotTitle{
+  grid-area: tempPlotTitle;
+  align-self: center;
+  justify-self: center;
+  font-size: min(2rem, 4vw);
+  text-align: center;
+
+}
+
+#tempPlot{
+  grid-area: tempPlot;
+}
+
+#precptPlotTitle{
+  grid-area: precptPlotTitle;
+  align-self: center;
+  justify-self: center;
+  font-size: min(2rem, 4vw);
+  text-align: center;
+}
+
+#precptPlot{
+  grid-area: precptPlot;
 }
 
 /* media queries */
