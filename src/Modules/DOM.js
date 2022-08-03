@@ -260,7 +260,7 @@ class DOM {
     
     this.tempPlotTitle = document.createElement('h2');
     this.tempPlotTitle.id = 'tempPlotTitle';
-    this.tempPlotTitle.textContent = 'Temperature Forecast';
+    this.tempPlotTitle.textContent = 'Temperature';
 
     this.tempPlot = Plot.plot({
       marks: [Plot.line(city.graphData, {
@@ -281,19 +281,24 @@ class DOM {
 
     this.precptPlotTitle = document.createElement('h2');
     this.precptPlotTitle.id = 'precptPlotTitle';
-    this.precptPlotTitle.textContent = `Precipitation Forecast (${this.tempF ? "inch" : "mm"})`;
+    this.precptPlotTitle.textContent = `Precipitation (${this.tempF ? "inch/hr" : "mm/hr"})`;
 
-    const noPrecipitation = city.graphData.every(val => val.precipitation === 0)
-    if (noPrecipitation) {
-      this.precptPlot = document.createElement('p');
-      this.precptPlot.textContent = "No Precipitation for the next three days";
-    } else {
+    const labelX = city.graphData[36].time;
+    const labels = [
+      {x: labelX, y: this.tempF ? .05 : 1.125, text: "Light Rain" },
+      {x: labelX, y: this.tempF ? .2 : 5, text: "Moderate Rain" },
+      {x: labelX, y: this.tempF ? .35 : 8.75, text: "Heavy Rain" },
+    ]
       this.precptPlot = Plot.plot({
-      y: {label: ""},
+      y: {label: "", domain: this.tempF ? [0,.4] : [0,10]},
       x: {ticks: 5},
-      marks: [Plot.line(city.graphData, {
-        x:"time", 
-        y:this.tempF ? "precipitationInch" : "precipitation", strokeWidth: 4})],
+      marks: [
+        Plot.line(city.graphData, {
+          x:"time", 
+          y:this.tempF ? "precipitationInch" : "precipitation", strokeWidth: 4}),
+        Plot.ruleY([this.tempF ? .1 : 2.5]),
+        Plot.ruleY([this.tempF ? .3: 7.5]),
+      Plot.text(labels, {x:"x", y:"y", text:"text", fill: "#555555"}) ],
       style: {background: "none", color:"black", fontSize: 20},
       marginLeft: 80,
       marginRight: 80,
@@ -302,7 +307,6 @@ class DOM {
       insetLeft: 10,
       insetRight: 10,
     })
-    }
     this.precptPlot.id = "precptPlot";
 
     this.weatherSubcontainer = document.createElement('div');

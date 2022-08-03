@@ -339,7 +339,6 @@ color:white;
   justify-self: center;
   font-size: min(2rem, 4vw);
   text-align: center;
-
 }
 
 #tempPlot{
@@ -352,10 +351,12 @@ color:white;
   justify-self: center;
   font-size: min(2rem, 4vw);
   text-align: center;
+  margin-top: 2rem;
 }
 
 #precptPlot{
   grid-area: precptPlot;
+  margin-bottom: 2rem;
 }
 p#precptPlot{
   width: 100%;
