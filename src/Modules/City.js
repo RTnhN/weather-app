@@ -25,7 +25,7 @@ class City {
   }
 
   static convertToInch(mm){
-    return Math.round((mm/25.4)*100)/100
+    return Math.round((mm/25.4)*1000)/1000
   }
 
   constructor(cityData, weatherData){

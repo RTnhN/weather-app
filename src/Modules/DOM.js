@@ -281,9 +281,14 @@ class DOM {
 
     this.precptPlotTitle = document.createElement('h2');
     this.precptPlotTitle.id = 'precptPlotTitle';
-    this.precptPlotTitle.textContent = `Precipitation Forecast(${this.tempF ? "inch" : "mm"})`;
+    this.precptPlotTitle.textContent = `Precipitation Forecast (${this.tempF ? "inch" : "mm"})`;
 
-    this.precptPlot = Plot.plot({
+    const noPrecipitation = city.graphData.every(val => val.precipitation === 0)
+    if (noPrecipitation) {
+      this.precptPlot = document.createElement('p');
+      this.precptPlot.textContent = "No Precipitation for the next three days";
+    } else {
+      this.precptPlot = Plot.plot({
       y: {label: ""},
       x: {ticks: 5},
       marks: [Plot.line(city.graphData, {
@@ -297,6 +302,7 @@ class DOM {
       insetLeft: 10,
       insetRight: 10,
     })
+    }
     this.precptPlot.id = "precptPlot";
 
     this.weatherSubcontainer = document.createElement('div');

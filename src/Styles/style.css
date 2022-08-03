@@ -329,6 +329,12 @@ color:white;
 #precptPlot{
   grid-area: precptPlot;
 }
+p#precptPlot{
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  text-align: center;
+}
+
 
 /* media queries */
 
