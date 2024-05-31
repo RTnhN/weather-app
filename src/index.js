@@ -6,6 +6,10 @@ import LocalStorageAgent from './Modules/LocalStorageAgent';
 import Database from './Modules/Database';
 import City from './Modules/City';
 
+const MINIMUM_SCREEN_WIDTH = 600;
+const UPDATE_INTERVAL = 60000;
+const MIN_SEARCH_LENGTH = 2;
+
 const contentNode = document.getElementById('content');
 const fetchCities = new FetchCities();
 const fetchWeather = new FetchWeather();
@@ -17,7 +21,7 @@ const citiesPromises = database.cities.map(city => (new Promise((resolve, reject
 
 Promise.all(citiesPromises).then(() => DOMinstance.sortCities(database.cities));
 
-if (window.innerWidth < 600){
+if (window.innerWidth < MINIMUM_SCREEN_WIDTH){
   DOMinstance.closeSidebar()
 }
 
@@ -30,12 +34,12 @@ function updateWeather(){
 
 // Update every minute on the minute
 setTimeout(() => {
-  setInterval(updateWeather, 60000);
+  setInterval(updateWeather, UPDATE_INTERVAL);
   updateWeather();
 }, (60 - new Date().getSeconds()) * 1000);
 
 function searchBarEntry(event) {
-  if (event.target.value.length < 2) {
+  if (event.target.value.length < MIN_SEARCH_LENGTH) {
     DOMinstance.clearCitySearchList();
     return;
   } else if (event.key !== 'Tab') {
